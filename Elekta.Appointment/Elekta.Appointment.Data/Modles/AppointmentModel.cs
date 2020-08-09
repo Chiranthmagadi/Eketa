@@ -13,7 +13,7 @@ namespace Elekta.Appointment.Data.Modles
         [Key]
         public int  Id { get; set; }
         public DateTime AppointmentDate { get; set; }
-        public string Status { get; set; }
+        public bool Status { get; set; }
         public Patient Patient { get; set; }
 
     }
