@@ -15,6 +15,6 @@ namespace Elekta.Appointment.Data
         public DbSet<Equipment> Equipments { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Hospital> Hospitals { get; set; }
-        public DbSet<AppointmentStatus> Appointments { get; set; }
+        public DbSet<Modles.Appointment> Appointments { get; set; }
     }
 }

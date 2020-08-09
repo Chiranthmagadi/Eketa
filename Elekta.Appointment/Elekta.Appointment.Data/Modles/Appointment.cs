@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Elekta.Appointment.Data.Modles
 {
-    public class AppointmentStatus
+    public class Appointment
     {
         [Key]
         public int AppointmentId { get; set; }
