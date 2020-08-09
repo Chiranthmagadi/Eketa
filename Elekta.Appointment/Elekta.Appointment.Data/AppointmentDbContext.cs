@@ -15,6 +15,19 @@ namespace Elekta.Appointment.Data
         public DbSet<Equipment> Equipments { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Hospital> Hospitals { get; set; }
-        public DbSet<Modles.Appointment> Appointments { get; set; }
+        public DbSet<Appointments> Appointments { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Appointments>().HasData(
+                new Appointments
+                {
+                    AppointmentId = 1,
+                    Status = "Booked",
+                    BookingDate = DateTime.Now,
+                   
+                }
+            ); ;
+        }
     }
 }
