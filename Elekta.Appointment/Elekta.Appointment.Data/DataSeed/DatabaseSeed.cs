@@ -15,7 +15,6 @@ namespace Elekta.Appointment.Data.DataSeed
         }
         public void SeedDatabase()
         {
-            var hospital = AddHospitals();
             var appointments = AddAppointments();
             var patients = AddPatients();
 
@@ -54,29 +53,6 @@ namespace Elekta.Appointment.Data.DataSeed
             return patients;
         }
 
-        private List<Hospital> AddHospitals()
-        {
-            var hospitals = new List<Hospital>
-            {
-                new Hospital
-                {
-                    HospitalId=110,
-                    HospitalName = "Test Hospital1",
-                    Address = "London"
-                },
-                new Hospital
-                {
-                   HospitalId=111,
-                    HospitalName = "Test Hospital2",
-                    Address = "London"
-                }
-            };
-
-            _context.Hospitals.AddRange(hospitals);
-            _context.SaveChanges();
-
-            return hospitals;
-        }
         private List<AppointmentModel> AddAppointments()
         {
             var appointments = new List<AppointmentModel>
@@ -106,7 +82,7 @@ namespace Elekta.Appointment.Data.DataSeed
             var count = 0;
             foreach (var appointment in appointments)
             {
-                appointment.Patient.PatientId = patients[count++ % patients.Count].PatientId;
+                appointment.PatientId = patients[count++ % patients.Count].PatientId;
             }
 
             _context.SaveChanges();

@@ -14,7 +14,8 @@ namespace Elekta.Appointment.Data.Modles
         public int  Id { get; set; }
         public DateTime AppointmentDate { get; set; }
         public bool Status { get; set; }
-        public Patient Patient { get; set; }
+        public virtual int PatientId { get; set; }
+        public virtual Patient Patient { get; set; }
 
     }
 }
