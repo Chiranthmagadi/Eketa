@@ -116,7 +116,10 @@ C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\ne
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.csproj.CoreCompileInputs.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.MvcApplicationPartsAssemblyInfo.cs
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.MvcApplicationPartsAssemblyInfo.cache
-C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

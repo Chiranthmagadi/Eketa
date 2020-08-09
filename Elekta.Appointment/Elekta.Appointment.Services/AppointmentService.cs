@@ -23,7 +23,7 @@ namespace Elekta.Appointment.Services
 
         public List<AppointmentModel> GetAllAppointments()
         {
-            var result = _context.Appointments.ToList();
+            var result = _context.Appointments.Where(c => c.AppointmentDate == DateTime.Today).ToList();
             return result;
         }
 
