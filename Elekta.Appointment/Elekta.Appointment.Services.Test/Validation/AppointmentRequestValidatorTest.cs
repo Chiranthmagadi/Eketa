@@ -7,8 +7,6 @@ using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Elekta.Appointment.Services.Test.Validation
 {
@@ -22,9 +20,9 @@ namespace Elekta.Appointment.Services.Test.Validation
         private AppointmentRequestValidator _validator;
 
         //do not remove
-        private static DateTime _testDataPass = new DateTime(2020, 11, 8, 9, 0, 0);
-        private static DateTime _testDataFail1 = new DateTime(2020, 11, 8, 7, 0, 0);
-        private static DateTime _testDataFail2 = new DateTime(2020, 08, 12, 9, 0, 0);
+        private static DateTime _testData1 = new DateTime(2020, 11, 8, 9, 0, 0);
+        private static DateTime _testData2 = new DateTime(2020, 11, 8, 7, 0, 0);
+        private static DateTime _testData3 = new DateTime(2020, 08, 12, 9, 0, 0);
 
         [SetUp]
         public void SetUp()
@@ -53,7 +51,7 @@ namespace Elekta.Appointment.Services.Test.Validation
         }
 
         [Test]
-        public void ValidateRequest_AppointmentDateWithCorrectDateAndTime_ReturnsSuccessValidationResult([ValueSource("_testDataPass")] DateTime bookingDate)
+        public void MAkeAppointment_AppointmentDateWithCorrectDateAndTime_ReturnsSuccessValidationResult([ValueSource("_testDataPass")] DateTime bookingDate)
         {
             //arrange
             var request = GetValidRequest();
@@ -67,7 +65,7 @@ namespace Elekta.Appointment.Services.Test.Validation
         }
 
         [Test]
-        public void ValidateRequest_AppointmentDateWithWrongTime_ReturnsFailedValidationResult([ValueSource("_testDataFail1")] DateTime bookingDate)
+        public void MakeAppointment_AppointmentDateWithWrongTime_ReturnsFailedValidationResult([ValueSource("_testDataFail1")] DateTime bookingDate)
         {
             //arrange
             var request = GetValidRequest();
@@ -82,7 +80,7 @@ namespace Elekta.Appointment.Services.Test.Validation
         }
 
         [Test]
-        public void ValidateRequest_AppointmentDateWithWrongDate_ReturnsFailedValidationResult([ValueSource("_testDataFail2")] DateTime bookingDate)
+        public void MakeAppointment_AppointmentDateWithWrongDate_ReturnsFailedValidationResult([ValueSource("_testDataFail2")] DateTime bookingDate)
         {
             //arrange
             var request = GetValidRequest();
@@ -94,8 +92,36 @@ namespace Elekta.Appointment.Services.Test.Validation
             //assert
             res.PassedValidation.Should().BeTrue();
             res.Errors.Should().Contain("Appointments can only be made for 2 weeks later at most!");
+            //
         }
 
+        [Test]
+        public void Cancel_Appointment_AppointmentDoesNotExist_ReturnsFailedValidationResult([ValueSource("_testDataFail")] DateTime bookingDate)
+        {
+            //arrange
+            var request = GetValidRequest();
+            request.AppointmentDate = bookingDate;
+
+            //act
+            var res = _validator.ValidateCancelAppointmentRequest(request);
+
+            //assert
+            res.PassedValidation.Should().BeTrue();
+        }
+
+        [Test]
+        public void Cancel_Appointment_CannotBeCancelledBefore3Days_ReturnsFailedValidationResult([ValueSource("_testDataFail1")] DateTime bookingDate)
+        {
+            //arrange
+            var request = GetValidRequest();
+            request.AppointmentDate = bookingDate;
+
+            //act
+            var res = _validator.ValidateMakeAppointmentRequest(request);
+
+            //assert
+            res.PassedValidation.Should().BeTrue();
+        }
 
         private AppointmentRequest GetValidRequest()
         {
@@ -106,6 +132,7 @@ namespace Elekta.Appointment.Services.Test.Validation
             var request = _fixture.Build<AppointmentRequest>()
                 .With(x => x.PatientId, data.Id)
                 .With(x => x.AppointmentDate, data.AppointmentDate)
+                //.With(x => x.NewAppointmentDate, data.NewAppointmentDate)
                 .Create();
             return request;
         }
