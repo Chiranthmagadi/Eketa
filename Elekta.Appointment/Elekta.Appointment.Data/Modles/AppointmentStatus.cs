@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Security.Permissions;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace Elekta.Appointment.Database.Models
+namespace Elekta.Appointment.Data.Modles
 {
     public class AppointmentStatus
     {

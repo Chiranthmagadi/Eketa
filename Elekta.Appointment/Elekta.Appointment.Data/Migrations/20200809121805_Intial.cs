@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Elekta.Appointment.Migrations
+namespace Elekta.Appointment.Data.Migrations
 {
     public partial class Intial : Migration
     {

@@ -1280,6 +1280,20 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "Elekta.Appointment.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.6",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.6"
+        },
+        "compile": {
+          "bin/placeholder/Elekta.Appointment.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Elekta.Appointment.Data.dll": {}
+        }
       }
     }
   },
@@ -4991,37 +5005,36 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "Elekta.Appointment.Data/1.0.0": {
+      "type": "project",
+      "path": "../Elekta.Appointment.Data/Elekta.Appointment.Data.csproj",
+      "msbuildProject": "../Elekta.Appointment.Data/Elekta.Appointment.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Elekta.Appointment.Data >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 3.1.6",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.6",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.6"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\imthi\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\chira\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\Test\\Raju\\Elekta2\\Elekta.Appointment\\Elekta.Appointment\\Elekta.Appointment.csproj",
+      "projectUniqueName": "C:\\Elekta\\Eketa\\Elekta.Appointment\\Elekta.Appointment\\Elekta.Appointment.csproj",
       "projectName": "Elekta.Appointment",
-      "projectPath": "C:\\Projects\\Test\\Raju\\Elekta2\\Elekta.Appointment\\Elekta.Appointment\\Elekta.Appointment.csproj",
-      "packagesPath": "C:\\Users\\imthi\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\Test\\Raju\\Elekta2\\Elekta.Appointment\\Elekta.Appointment\\obj\\",
+      "projectPath": "C:\\Elekta\\Eketa\\Elekta.Appointment\\Elekta.Appointment\\Elekta.Appointment.csproj",
+      "packagesPath": "C:\\Users\\chira\\.nuget\\packages\\",
+      "outputPath": "C:\\Elekta\\Eketa\\Elekta.Appointment\\Elekta.Appointment\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\imthi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\chira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -5032,7 +5045,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Elekta\\Eketa\\Elekta.Appointment\\Elekta.Appointment.Data\\Elekta.Appointment.Data.csproj": {
+              "projectPath": "C:\\Elekta\\Eketa\\Elekta.Appointment\\Elekta.Appointment.Data\\Elekta.Appointment.Data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -5069,12 +5086,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.2, 3.1.2]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -5083,7 +5094,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

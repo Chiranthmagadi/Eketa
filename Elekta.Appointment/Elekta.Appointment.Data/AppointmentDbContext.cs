@@ -1,13 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Elekta.Appointment.Data.Modles;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Elekta.Appointment.Database.Models;
+using System.Text;
 
-namespace Elekta.Appointment.Database
+namespace Elekta.Appointment.Data
 {
-    public class AppointmentDbContext:DbContext
+    public class AppointmentDbContext : DbContext
     {
         public AppointmentDbContext(DbContextOptions<AppointmentDbContext> options) : base(options)
         {
@@ -16,6 +15,6 @@ namespace Elekta.Appointment.Database
         public DbSet<Equipment> Equipments { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Hospital> Hospitals { get; set; }
-        public DbSet<AppointmentStatus> Appointments {get;set;}
+        public DbSet<AppointmentStatus> Appointments { get; set; }
     }
 }

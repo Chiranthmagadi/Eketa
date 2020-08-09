@@ -13,5 +13,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Elekta.Appointment.Data\Elekta.Appointment.Data.csproj" />
+  </ItemGroup>
+
 
 </Project>

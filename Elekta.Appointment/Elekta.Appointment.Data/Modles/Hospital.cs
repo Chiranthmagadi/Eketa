@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace Elekta.Appointment.Database.Models
+namespace Elekta.Appointment.Data.Modles
 {
     public class Hospital
     {
@@ -12,6 +11,6 @@ namespace Elekta.Appointment.Database.Models
         public int HospitalId { get; set; }
         public string HospitalName { get; set; }
         public string Address { get; set; }
-       
+
     }
 }
