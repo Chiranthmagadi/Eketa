@@ -1,8 +1,6 @@
 ﻿using Elekta.Appointment.Data.Modles;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Elekta.Appointment.Data
 {

@@ -15,6 +15,5 @@ namespace Elekta.Appointment.Data.Modles
         public Patient Patient { get; set; }
         public Equipment Equipment { get; set; }
         public Hospital Hospital { get; set; }
-
     }
 }

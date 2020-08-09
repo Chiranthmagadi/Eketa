@@ -37,6 +37,12 @@ namespace Elekta.Appointment.Services
 
             _context.Appointments.Add(newAppointment);
             _context.SaveChanges();
+            SendEmailToNotify();
+        }
+
+        private void SendEmailToNotify()
+        {
+            //send email
         }
     }
 }
