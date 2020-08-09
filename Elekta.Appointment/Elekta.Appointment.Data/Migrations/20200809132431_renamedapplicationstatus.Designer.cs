@@ -4,14 +4,16 @@ using Elekta.Appointment.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Elekta.Appointment.Data.Migrations
 {
     [DbContext(typeof(AppointmentDbContext))]
-    partial class AppointmentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200809132431_renamedapplicationstatus")]
+    partial class renamedapplicationstatus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace Elekta.Appointment.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Elekta.Appointment.Data.Modles.Appointments", b =>
+            modelBuilder.Entity("Elekta.Appointment.Data.Modles.Appointment", b =>
                 {
                     b.Property<int>("AppointmentId")
                         .ValueGeneratedOnAdd()
@@ -53,15 +55,6 @@ namespace Elekta.Appointment.Data.Migrations
                     b.HasIndex("PatientId");
 
                     b.ToTable("Appointments");
-
-                    b.HasData(
-                        new
-                        {
-                            AppointmentId = 1,
-                            BookingDate = new DateTime(2020, 8, 9, 14, 49, 47, 747, DateTimeKind.Local).AddTicks(246),
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Booked"
-                        });
                 });
 
             modelBuilder.Entity("Elekta.Appointment.Data.Modles.Equipment", b =>
@@ -121,7 +114,7 @@ namespace Elekta.Appointment.Data.Migrations
                     b.ToTable("Patients");
                 });
 
-            modelBuilder.Entity("Elekta.Appointment.Data.Modles.Appointments", b =>
+            modelBuilder.Entity("Elekta.Appointment.Data.Modles.Appointment", b =>
                 {
                     b.HasOne("Elekta.Appointment.Data.Modles.Equipment", "Equipment")
                         .WithMany()
