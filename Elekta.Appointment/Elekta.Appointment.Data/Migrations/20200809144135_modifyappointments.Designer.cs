@@ -4,14 +4,16 @@ using Elekta.Appointment.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Elekta.Appointment.Data.Migrations
 {
     [DbContext(typeof(AppointmentDbContext))]
-    partial class AppointmentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200809144135_modifyappointments")]
+    partial class modifyappointments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,9 +21,9 @@ namespace Elekta.Appointment.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Elekta.Appointment.Data.Modles.AppointmentModel", b =>
+            modelBuilder.Entity("Elekta.Appointment.Data.Modles.Appointments", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AppointmentId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -35,11 +37,19 @@ namespace Elekta.Appointment.Data.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("AppointmentId");
 
                     b.HasIndex("PatientId");
 
                     b.ToTable("Appointments");
+
+                    b.HasData(
+                        new
+                        {
+                            AppointmentId = 1,
+                            AppointmentDate = new DateTime(2020, 8, 9, 15, 41, 34, 698, DateTimeKind.Local).AddTicks(9240),
+                            Status = "Booked"
+                        });
                 });
 
             modelBuilder.Entity("Elekta.Appointment.Data.Modles.Equipment", b =>
@@ -76,26 +86,6 @@ namespace Elekta.Appointment.Data.Migrations
                     b.HasKey("HospitalId");
 
                     b.ToTable("Hospitals");
-
-                    b.HasData(
-                        new
-                        {
-                            HospitalId = 1,
-                            Address = "Woolwich",
-                            HospitalName = "QE"
-                        },
-                        new
-                        {
-                            HospitalId = 2,
-                            Address = "London",
-                            HospitalName = "GH"
-                        },
-                        new
-                        {
-                            HospitalId = 3,
-                            Address = "London",
-                            HospitalName = "Test"
-                        });
                 });
 
             modelBuilder.Entity("Elekta.Appointment.Data.Modles.Patient", b =>
@@ -117,29 +107,9 @@ namespace Elekta.Appointment.Data.Migrations
                     b.HasKey("PatientId");
 
                     b.ToTable("Patients");
-
-                    b.HasData(
-                        new
-                        {
-                            PatientId = 1,
-                            PatientEmailId = "george@test.com",
-                            PatientName = "George"
-                        },
-                        new
-                        {
-                            PatientId = 2,
-                            PatientEmailId = "json@test.com",
-                            PatientName = "Json"
-                        },
-                        new
-                        {
-                            PatientId = 3,
-                            PatientEmailId = "luci@test.com",
-                            PatientName = "Luci"
-                        });
                 });
 
-            modelBuilder.Entity("Elekta.Appointment.Data.Modles.AppointmentModel", b =>
+            modelBuilder.Entity("Elekta.Appointment.Data.Modles.Appointments", b =>
                 {
                     b.HasOne("Elekta.Appointment.Data.Modles.Patient", "Patient")
                         .WithMany()
