@@ -1,0 +1,22 @@
+[
+  {
+    "equipmentId": 1,
+    "\"isAvailable\"=\": true,": null,
+    "date": "2020-01-02T08:00:00.000Z"
+  },
+  {
+    "equipmentId": 1,
+    "\"isAvailable\"=\": false,": null,
+    "date": "2020-01-02T09:00:00.000Z"
+  },
+  {
+    "equipmentId": 2,
+    "\"isAvailable\"=\": false,": null,
+    "date": "2020-01-02T08:00:00.000Z"
+  },
+  {
+    "equipmentId": 2,
+    "\"isAvailable\"=\": true,": null,
+    "date": "2020-01-02T09:00:00.000Z"
+  }
+]

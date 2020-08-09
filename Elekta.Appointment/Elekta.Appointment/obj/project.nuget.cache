@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rwcMR0WaTL+3VStfiKdhhqOgo40CiYqyJSX6vX11VnNF2rm0Xyj2CgOuw4yZgFcdDCjoeoXHOuPj3TjT0eLiCw==",
+  "dgSpecHash": "3pHa7BbbXHe2ze5pz02sDSOw6xczP/wO6xvDmz6nfVhlHHfoFuB37AXPPu1TfrRvm3IMrmiHmYwPKPlONGcVFg==",
   "success": true,
   "projectFilePath": "C:\\Elekta\\Eketa\\Elekta.Appointment\\Elekta.Appointment\\Elekta.Appointment.csproj",
   "expectedPackageFiles": [
@@ -30,6 +30,7 @@
     "C:\\Users\\chira\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\chira\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\chira\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\chira\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\chira\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\chira\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\chira\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

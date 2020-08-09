@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Elekta.Appointment.Services.Interfaces;
@@ -18,7 +19,12 @@ namespace Elekta.Appointment.Controllers
         public AppointmentController(IAppointmentService appointmentService )
         {
             _appointmentService = appointmentService;
+            var folderDetails = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\{"Equipment\\Equipment.json"}");
+            var JSON = System.IO.File.ReadAllText(folderDetails);
+            dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(JSON);
         }
+
+
 
         [HttpPost()]
         public IActionResult MakeAppointment(AppointmentRequest request)
