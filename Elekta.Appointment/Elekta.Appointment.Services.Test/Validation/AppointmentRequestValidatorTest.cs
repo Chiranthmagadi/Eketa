@@ -92,6 +92,7 @@ namespace Elekta.Appointment.Services.Test.Validation
             //assert
             res.PassedValidation.Should().BeTrue();
             res.Errors.Should().Contain("Appointments can only be made for 2 weeks later at most!");
+            //
         }
 
         [Test]
