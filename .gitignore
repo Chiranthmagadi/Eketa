@@ -3,3 +3,14 @@
 ################################################################################
 
 /.vs/Elekta2/v16/.suo
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/Elekta.Appointment/Elekta.Appointment/obj/Debug/netcoreapp3.1/Elekta.Appointment.csprojAssemblyReference.cache
+/Elekta.Appointment/Elekta.Appointment.Data/obj/Debug/netcoreapp3.1
+/Elekta.Appointment/Elekta.Appointment.Data/bin/Debug/netcoreapp3.1
+/Elekta.Appointment/Elekta.Appointment.Services/bin/Debug/netcoreapp3.1
+/Elekta.Appointment/Elekta.Appointment.Services/obj/Debug/netcoreapp3.1
+/Elekta.Appointment/Elekta.Appointment.Services.Test/bin/Debug/netcoreapp3.1
+/Elekta.Appointment/Elekta.Appointment.Services/obj
+/Elekta.Appointment/Elekta.Appointment.Services.Test/obj
+/Elekta.Appointment/Elekta.Appointment.Data/obj
