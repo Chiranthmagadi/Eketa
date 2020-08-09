@@ -26,7 +26,7 @@ namespace Elekta.Appointment.Controllers
         [HttpGet]
         public  string Get()
         {
-            return "";
+            return "Hi";
         }
     }
 }
