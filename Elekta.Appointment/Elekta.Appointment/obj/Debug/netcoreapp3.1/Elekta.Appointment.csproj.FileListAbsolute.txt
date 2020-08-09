@@ -119,3 +119,4 @@ C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\ne
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.csproj.CoreCompileInputs.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.MvcApplicationPartsAssemblyInfo.cs
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.MvcApplicationPartsAssemblyInfo.cache
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
