@@ -29,9 +29,9 @@ namespace Elekta.Appointment.Services
             {
                 throw new ArgumentException(validationResult.Errors.First());
             }
-            var newAppointment = new Appointments
+            var newAppointment = new AppointmentModel
             {
-                BookingDate = request.BookingDate,
+                AppointmentDate = request.AppointmentDate,
 
             };
 

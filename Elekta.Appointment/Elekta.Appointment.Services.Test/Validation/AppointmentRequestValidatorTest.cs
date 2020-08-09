@@ -52,11 +52,12 @@ namespace Elekta.Appointment.Services.Test.Validation
 
         }
 
-        public void ValidateRequest_BookingDateWithCorrectDateAndTime_ReturnsSuccessValidationResult([ValueSource("_testDataPass")] DateTime bookingDate)
+        [Test]
+        public void ValidateRequest_AppointmentDateWithCorrectDateAndTime_ReturnsSuccessValidationResult([ValueSource("_testDataPass")] DateTime bookingDate)
         {
             //arrange
             var request = GetValidRequest();
-            request.BookingDate = bookingDate;
+            request.AppointmentDate = bookingDate;
 
             //act
             var res = _validator.ValidateMakeAppointmentRequest(request);
@@ -65,11 +66,12 @@ namespace Elekta.Appointment.Services.Test.Validation
             res.PassedValidation.Should().BeTrue();
         }
 
-        public void ValidateRequest_BookingDateWithWrongTime_ReturnsFailedValidationResult([ValueSource("_testDataFail1")] DateTime bookingDate)
+        [Test]
+        public void ValidateRequest_AppointmentDateWithWrongTime_ReturnsFailedValidationResult([ValueSource("_testDataFail1")] DateTime bookingDate)
         {
             //arrange
             var request = GetValidRequest();
-            request.BookingDate = bookingDate;
+            request.AppointmentDate = bookingDate;
 
             //act
             var res = _validator.ValidateMakeAppointmentRequest(request);
@@ -79,11 +81,12 @@ namespace Elekta.Appointment.Services.Test.Validation
             res.Errors.Should().Contain("Appointments can be made between 08:00 and 16:00!");
         }
 
-        public void ValidateRequest_BookingDateWithWrongDate_ReturnsFailedValidationResult([ValueSource("_testDataFail2")] DateTime bookingDate)
+        [Test]
+        public void ValidateRequest_AppointmentDateWithWrongDate_ReturnsFailedValidationResult([ValueSource("_testDataFail2")] DateTime bookingDate)
         {
             //arrange
             var request = GetValidRequest();
-            request.BookingDate = bookingDate;
+            request.AppointmentDate = bookingDate;
 
             //act
             var res = _validator.ValidateMakeAppointmentRequest(request);
@@ -96,13 +99,13 @@ namespace Elekta.Appointment.Services.Test.Validation
 
         private AppointmentRequest GetValidRequest()
         {
-            var data = _fixture.Create<Appointments>();
+            var data = _fixture.Create<AppointmentModel>();
             _context.Appointments.Add(data);
             _context.SaveChanges();
 
             var request = _fixture.Build<AppointmentRequest>()
-                .With(x => x.PatientId, data.AppointmentId)
-                .With(x => x.BookingDate, data.BookingDate)
+                .With(x => x.PatientId, data.Id)
+                .With(x => x.AppointmentDate, data.AppointmentDate)
                 .Create();
             return request;
         }

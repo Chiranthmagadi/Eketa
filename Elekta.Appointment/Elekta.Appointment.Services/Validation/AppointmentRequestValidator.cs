@@ -28,7 +28,7 @@ namespace Elekta.Appointment.Services.Validation
 
         private bool IsAppointmentNOTLaterEnough(AppointmentRequest request, ref ValidationResult result)
         {
-            if ((request.BookingDate - DateTime.Now).TotalDays <= 14)
+            if ((request.AppointmentDate - DateTime.Now).TotalDays <= 14)
             {
                 result.PassedValidation = false;
                 result.Errors.Add("Appointments can only be made for 2 weeks later at most!");
@@ -44,7 +44,7 @@ namespace Elekta.Appointment.Services.Validation
 
         private bool IsAppointmentNOTMadeBetweenCorrectTime(AppointmentRequest request, ref ValidationResult result)
         {
-            if (!((request.BookingDate.Hour >= 8) && (request.BookingDate.Hour <= 16)))
+            if (!((request.AppointmentDate.Hour >= 8) && (request.AppointmentDate.Hour <= 16)))
             {
                 result.PassedValidation = false;
                 result.Errors.Add("Appointments can be made between 08:00 and 16:00!");
