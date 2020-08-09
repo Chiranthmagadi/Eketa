@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Elekta.Appointment.Data;
+using Elekta.Appointment.Services;
+using Elekta.Appointment.Services.Interfaces;
+using Elekta.Appointment.Services.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +30,8 @@ namespace Elekta.Appointment
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IAppointmentService, AppointmentService>();
+            services.AddScoped<IAppointmentRequestValidator, AppointmentRequestValidator>();
             services.AddDbContext<AppointmentDbContext>(options =>
                              options.UseSqlServer(Configuration.GetConnectionString("AppointmentConn")));
         }

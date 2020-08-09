@@ -7,6 +7,6 @@ namespace Elekta.Appointment.Services.Validation
 {
     public interface IAppointmentRequestValidator
     {
-        ValidationResult ValidateRequest(AppointmentRequest request);
+        ValidationResult ValidateMakeAppointmentRequest(AppointmentRequest request);
     }
 }

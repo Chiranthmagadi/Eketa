@@ -4,4 +4,16 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoFixture" Version="4.13.0" />
+    <PackageReference Include="FluentAssertions" Version="6.0.0-alpha0001" />
+    <PackageReference Include="Moq" Version="4.14.5" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Elekta.Appointment.Data\Elekta.Appointment.Data.csproj" />
+    <ProjectReference Include="..\Elekta.Appointment.Services\Elekta.Appointment.Services.csproj" />
+  </ItemGroup>
+
 </Project>

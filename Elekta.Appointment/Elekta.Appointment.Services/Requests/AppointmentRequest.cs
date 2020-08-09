@@ -7,6 +7,6 @@ namespace Elekta.Appointment.Services.Requests
     public class AppointmentRequest
     {
         public int PatientId { get; set; }
-        public DateTime BookingDate { get; set; }
+        public DateTime AppointmentDate { get; set; }
     }
 }
