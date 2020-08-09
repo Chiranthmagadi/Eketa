@@ -8,6 +8,7 @@ using Elekta.Appointment.Services.Requests;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Elekta.Appointment.Controllers
 {
@@ -16,14 +17,28 @@ namespace Elekta.Appointment.Controllers
     public class AppointmentController : ControllerBase
     {
         private readonly IAppointmentService _appointmentService;
+        //private readonly ILogger<AppointmentController> _logger;
 
-        public AppointmentController(IAppointmentService appointmentService )
+        public AppointmentController( IAppointmentService appointmentService)
         {
+            //_logger = logger;
             _appointmentService = appointmentService;
-            var folderDetails = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\{"Equipment\\Equipment.json"}");
-            var JSON = System.IO.File.ReadAllText(folderDetails);
-            dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(JSON);
+         
         }
+
+        [HttpGet]
+        public string Get()
+        {
+            return "Hi";
+        }
+       
+        //public AppointmentController(IAppointmentService appointmentService)
+        //{
+        //    _appointmentService = appointmentService;
+        //    //var folderDetails = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\{"Equipment\\Equipment.json"}");
+        //    //var JSON = System.IO.File.ReadAllText(folderDetails);
+        //    //dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(JSON);
+        //}
 
 
 
