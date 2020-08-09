@@ -59,8 +59,6 @@ C:\Elekta\Eketa\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\El
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.csprojAssemblyReference.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.AssemblyInfoInputs.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.AssemblyInfo.cs
-C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.csproj.CoreCompileInputs.cache
-C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.MvcApplicationPartsAssemblyInfo.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.dll
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.pdb
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\appsettings.Development.json
@@ -114,3 +112,10 @@ C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\ne
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\staticwebassets\Elekta.Appointment.StaticWebAssets.Manifest.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\staticwebassets\Elekta.Appointment.StaticWebAssets.xml
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.genruntimeconfig.cache
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.csproj.CoreCompileInputs.cache
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.MvcApplicationPartsAssemblyInfo.cache

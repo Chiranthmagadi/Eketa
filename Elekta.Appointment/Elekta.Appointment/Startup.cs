@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace Elekta.Appointment
 {
@@ -34,6 +35,10 @@ namespace Elekta.Appointment
             services.AddScoped<IAppointmentRequestValidator, AppointmentRequestValidator>();
             services.AddDbContext<AppointmentDbContext>(options =>
                              options.UseSqlServer(Configuration.GetConnectionString("AppointmentConn")));
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AppointmentApi", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +56,16 @@ namespace Elekta.Appointment
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "AppointmentApi V1");
+                c.RoutePrefix = string.Empty;
             });
         }
     }

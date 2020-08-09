@@ -21,9 +21,14 @@ namespace Elekta.Appointment.Services
             this._validator = validator;
         }
 
+        public List<AppointmentModel> GetAllAppointments()
+        {
+            var result = _context.Appointments.ToList();
+            return result;
+        }
+
         public void MakeAppointment(AppointmentRequest request)
         {
-
             var validationResult = _validator.ValidateMakeAppointmentRequest(request);
             if (!validationResult.PassedValidation)
             {
@@ -43,6 +48,29 @@ namespace Elekta.Appointment.Services
         private void SendEmailToNotify()
         {
             //send email
+        }
+
+        public void CancelAppointment(AppointmentRequest request)
+        {
+            var validationResult = _validator.ValidateMakeAppointmentRequest(request);
+            if (!validationResult.PassedValidation)
+            {
+                throw new ArgumentException(validationResult.Errors.First());
+            }
+            var newAppointment = new AppointmentModel
+            {
+                AppointmentDate = request.AppointmentDate,
+
+            };
+
+            _context.Appointments.Add(newAppointment);
+            _context.SaveChanges();
+            SendEmailToNotify();
+        }
+
+        public void ChangeAppointment(AppointmentRequest request)
+        {
+            throw new NotImplementedException();
         }
     }
 }

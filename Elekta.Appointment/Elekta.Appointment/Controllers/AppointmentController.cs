@@ -4,13 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Elekta.Appointment.Services.Interfaces;
 using Elekta.Appointment.Services.Requests;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Elekta.Appointment.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class AppointmentController : ControllerBase
     {
         private readonly IAppointmentService _appointmentService;
@@ -20,7 +21,7 @@ namespace Elekta.Appointment.Controllers
             _appointmentService = appointmentService;
         }
 
-        [HttpPost()]
+        [HttpPost("addappointment")]
         public IActionResult MakeAppointment(AppointmentRequest request)
         {
             try
@@ -37,5 +38,43 @@ namespace Elekta.Appointment.Controllers
                 return StatusCode(500, ex);
             }
         }
+
+        [HttpPost("cancelappointment")]
+        public IActionResult CancelAppointment(AppointmentRequest request)
+        {
+            try
+            {
+                _appointmentService.CancelAppointment(request);
+                return Ok();
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex);
+            }
+        }
+
+        [HttpPost("changeappointment")]
+        public IActionResult ChangeAppointment(AppointmentRequest request)
+        {
+            try
+            {
+                _appointmentService.ChangeAppointment(request);
+                return Ok();
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex);
+            }
+        }
+
+
     }
 }
