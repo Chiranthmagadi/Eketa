@@ -33,8 +33,9 @@ namespace Elekta.Appointment
             services.AddControllers();
             services.AddScoped<IAppointmentService, AppointmentService>();
             services.AddScoped<IAppointmentRequestValidator, AppointmentRequestValidator>();
-            services.AddDbContext<AppointmentDbContext>(options =>
-                             options.UseSqlServer(Configuration.GetConnectionString("AppointmentConn")));
+            services.AddDbContext<AppointmentDbContext>(options => options
+                    .UseInMemoryDatabase(databaseName: "AppointmentDb1")
+                    .UseLazyLoadingProxies());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AppointmentApi", Version = "v1" });

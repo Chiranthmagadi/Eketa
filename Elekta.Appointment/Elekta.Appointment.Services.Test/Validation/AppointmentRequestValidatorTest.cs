@@ -34,7 +34,8 @@ namespace Elekta.Appointment.Services.Test.Validation
             _fixture.Behaviors.Add(new OmitOnRecursionBehavior(1));
 
             // Mock setup
-            _context = new AppointmentDbContext(new DbContextOptionsBuilder<AppointmentDbContext>().Options);
+            _context = new AppointmentDbContext(new DbContextOptionsBuilder<AppointmentDbContext>()
+                .UseInMemoryDatabase(Guid.NewGuid().ToString()).Options);
 
             // Mock default
             SetupMockDefaults();

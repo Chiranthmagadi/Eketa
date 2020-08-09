@@ -15,10 +15,9 @@ namespace Elekta.Appointment.Data.DataSeed
         }
         public void SeedDatabase()
         {
-            var hospitals = AddHospitals();
             var appointments = AddAppointments();
             var patients = AddPatients();
-            var equipments = AddEquipments();
+
 
             LinkPatientsToAppointment(patients, appointments);
           
@@ -54,29 +53,6 @@ namespace Elekta.Appointment.Data.DataSeed
             return patients;
         }
 
-        private List<Hospital> AddHospitals()
-        {
-            var hospitals = new List<Hospital>
-            {
-                new Hospital
-                {
-                    HospitalId=110,
-                    HospitalName = "Test Hospital1",
-                    Address = "London"
-                },
-                new Hospital
-                {
-                   HospitalId=111,
-                    HospitalName = "Test Hospital2",
-                    Address = "London"
-                }
-            };
-
-            _context.Hospitals.AddRange(hospitals);
-            _context.SaveChanges();
-
-            return hospitals;
-        }
         private List<AppointmentModel> AddAppointments()
         {
             var appointments = new List<AppointmentModel>
@@ -101,48 +77,12 @@ namespace Elekta.Appointment.Data.DataSeed
             return appointments;
         }
 
-        private List<Equipment> AddEquipments()
-        {
-            var equipments = new List<Equipment>
-            {
-                new Equipment
-                {
-                    EquipmentId = 1,
-                    Date = "2020-01-02T08:00:00.000Z",
-                    IsAvailable = true
-                },
-                new Equipment
-                {
-                    EquipmentId = 1,
-                    Date = "2020-01-02T09:00:00.000Z",
-                    IsAvailable = false
-                },
-                new Equipment
-                {
-                    EquipmentId = 2,
-                    Date = "2020-01-02T08:00:00.000Z",
-                    IsAvailable = false
-                },
-                new Equipment
-                {
-                    EquipmentId = 2,
-                    Date = "2020-01-02T09:00:00.000Z",
-                    IsAvailable = true
-                }
-            };
-
-            _context.Equipments.AddRange(equipments);
-            _context.SaveChanges();
-
-            return equipments;
-        }
-
         private void LinkPatientsToAppointment(List<Patient> patients, List<AppointmentModel> appointments)
         {
             var count = 0;
             foreach (var appointment in appointments)
             {
-                appointment.Patient.PatientId = patients[count++ % patients.Count].PatientId;
+                appointment.PatientId = patients[count++ % patients.Count].PatientId;
             }
 
             _context.SaveChanges();
