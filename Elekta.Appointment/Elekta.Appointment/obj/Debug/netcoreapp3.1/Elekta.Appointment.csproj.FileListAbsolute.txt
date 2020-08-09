@@ -93,7 +93,6 @@ C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\ne
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.csprojAssemblyReference.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.AssemblyInfoInputs.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.AssemblyInfo.cs
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.csproj.CoreCompileInputs.cache
