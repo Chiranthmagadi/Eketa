@@ -7,6 +7,9 @@ namespace Elekta.Appointment.Data.Modles
 {
     public class AppointmentModel
     {
+        /// <summary>
+        /// adding comments
+        /// </summary>
         [Key]
         public int  Id { get; set; }
         public DateTime AppointmentDate { get; set; }
