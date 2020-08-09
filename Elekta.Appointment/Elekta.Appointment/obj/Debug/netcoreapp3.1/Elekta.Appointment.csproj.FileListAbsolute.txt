@@ -124,4 +124,3 @@ C:\Elekta\Eketa\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Ne
 C:\Elekta\Eketa\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Elekta\Eketa\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Elekta\Eketa\Elekta.Appointment\Elekta.Appointment\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Elekta\Eketa\Elekta.Appointment\Elekta.Appointment\obj\Debug\netcoreapp3.1\Elekta.Appointment.MvcApplicationPartsAssemblyInfo.cs

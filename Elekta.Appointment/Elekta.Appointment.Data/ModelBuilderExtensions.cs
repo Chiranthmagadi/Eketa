@@ -16,7 +16,7 @@ namespace Elekta.Appointment.Data
                new AppointmentModel
                {
                    Id = 1,
-                   Status = "Booked",
+                   Status = true,
                    AppointmentDate = DateTime.Now,
                    Patient = { PatientId=1, 
                                PatientName="George",
