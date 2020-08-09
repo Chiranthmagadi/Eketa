@@ -15,10 +15,10 @@ namespace Elekta.Appointment.Data.DataSeed
         }
         public void SeedDatabase()
         {
-            var hospital = AddHospitals();
+            var hospitals = AddHospitals();
             var appointments = AddAppointments();
             var patients = AddPatients();
-
+            var equipments = AddEquipments();
 
             LinkPatientsToAppointment(patients, appointments);
           
@@ -99,6 +99,42 @@ namespace Elekta.Appointment.Data.DataSeed
             _context.SaveChanges();
 
             return appointments;
+        }
+
+        private List<Equipment> AddEquipments()
+        {
+            var equipments = new List<Equipment>
+            {
+                new Equipment
+                {
+                    EquipmentId = 1,
+                    Date = "2020-01-02T08:00:00.000Z",
+                    IsAvailable = true
+                },
+                new Equipment
+                {
+                    EquipmentId = 1,
+                    Date = "2020-01-02T09:00:00.000Z",
+                    IsAvailable = false
+                },
+                new Equipment
+                {
+                    EquipmentId = 2,
+                    Date = "2020-01-02T08:00:00.000Z",
+                    IsAvailable = false
+                },
+                new Equipment
+                {
+                    EquipmentId = 2,
+                    Date = "2020-01-02T09:00:00.000Z",
+                    IsAvailable = true
+                }
+            };
+
+            _context.Equipments.AddRange(equipments);
+            _context.SaveChanges();
+
+            return equipments;
         }
 
         private void LinkPatientsToAppointment(List<Patient> patients, List<AppointmentModel> appointments)
