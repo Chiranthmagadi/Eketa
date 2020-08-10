@@ -30,25 +30,25 @@ namespace Elekta.Equipment.RemoteService
                 {
                     Id = 1,
                     IsAvailable = true,
-                    Date = Convert.ToDateTime("2020-01-02T08,00:00.000Z")
+                    Date = new DateTime(2020,01,02,08,00,00)
                 },
                 new Equipment
                 {
                     Id = 2,
                     IsAvailable = true,
-                    Date = Convert.ToDateTime("2020-01-02T09,00:00.000Z")
+                    Date = new DateTime(2020,01,02,09,00,00)
                 },
                 new Equipment
                 {
                     Id = 3,
                     IsAvailable = true,
-                    Date = Convert.ToDateTime("2020-01-02T08,00:00.000Z")
+                    Date = new DateTime(2020,01,02,08,00,00)
                 },
                 new Equipment
                 {
                     Id = 4,
                     IsAvailable = true,
-                    Date = Convert.ToDateTime("2020-01-02T09,00:00.000Z")
+                    Date = new DateTime(2020,01,02,09,00,00)
                 }
             };
 
