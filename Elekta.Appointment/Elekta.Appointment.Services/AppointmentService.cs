@@ -62,9 +62,9 @@ namespace Elekta.Appointment.Services
             SendEmailToNotify();
         }
 
-        public void ChangeAppointment(AppointmentRequest request)
+        public async Task ChangeAppointmentAsync(AppointmentRequest request)
         {
-            var validationResult = _validator.ValidateChangeAppointmentRequest(request);
+            var validationResult = await _validator.ValidateChangeAppointmentRequestAsync(request);
             if (!validationResult.PassedValidation)
             {
                 throw new ArgumentException(validationResult.Errors.First());

@@ -19,7 +19,13 @@ namespace Elekta.Equipment.RemoteService.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetEquipmentAvailability(Request request)
+        public string Get()
+        {
+            return "Welcome to Elekta Equipment.";
+        }
+
+        [HttpPost]
+        public IActionResult EquipmentAvailability(Request request)
         {
             var result = _service.IsEquipmentAvailable(request.AvailabilityDate);
             return Ok(result);

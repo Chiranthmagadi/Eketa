@@ -70,7 +70,7 @@ namespace Elekta.Appointment.Controllers
         {
             try
             {
-                _appointmentService.ChangeAppointment(request);
+                _appointmentService.ChangeAppointmentAsync(request);
                 return Ok();
             }
             catch (ArgumentException ex)

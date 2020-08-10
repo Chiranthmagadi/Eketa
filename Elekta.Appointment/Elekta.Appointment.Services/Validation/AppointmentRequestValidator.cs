@@ -1,5 +1,6 @@
 ﻿using Elekta.Appointment.Data;
 using Elekta.Appointment.Services.Requests;
+using Newtonsoft.Json;
 using System;
 using System.Linq;
 using System.Net.Http;
@@ -16,18 +17,21 @@ namespace Elekta.Appointment.Services.Validation
             _context = context;
         }
 
-        public ValidationResult ValidateChangeAppointmentRequest(AppointmentRequest request)
+        public async Task<ValidationResult> ValidateChangeAppointmentRequestAsync(AppointmentRequest request)
         {
             var result = new ValidationResult(true);
             if (IsAppointmentNOTExist(request, ref result))
                 return result;
-            if (IsAppointmentNOTLessthanGivenDays(request.ChangeAppointmentDate, daysBefore:2, ref result))
+            if (IsAppointmentNOTLessthanGivenDays(request.ChangeAppointmentDate, daysBefore: 2, ref result))
                 return result;
             if (IsAppointmentNOTLaterEnough(request.ChangeAppointmentDate, ref result))
                 return result;
-            //if (IsEquipmentNOTAvailable(request, ref result))
-            //    return result;
-
+            var equipAvail = await CheckEquipmentAvailableAsync(request);
+            if (!equipAvail)
+            {
+                SetValidationForEquipmentAvailability(ref result);
+                return result;
+            }
             return result;
         }
 
@@ -36,7 +40,7 @@ namespace Elekta.Appointment.Services.Validation
             var result = new ValidationResult(true);
             if (IsAppointmentNOTExist(request, ref result))
                 return result;
-            if (IsAppointmentNOTLessthanGivenDays(request.AppointmentDate, daysBefore:3, ref result))
+            if (IsAppointmentNOTLessthanGivenDays(request.AppointmentDate, daysBefore: 3, ref result))
                 return result;
             return result;
         }
@@ -44,11 +48,14 @@ namespace Elekta.Appointment.Services.Validation
         public async Task<ValidationResult> ValidateMakeAppointmentRequestAsync(AppointmentRequest request)
         {
             var result = new ValidationResult(true);
-            await IsEquipmentNOTAvailableAsync(request);
             if (IsAppointmentNOTLaterEnough(request.AppointmentDate, ref result))
                 return result;
-            //if (IsEquipmentNOTAvailable(request, ref result))
-            //    return result;
+            var equipAvail = await CheckEquipmentAvailableAsync(request);
+            if (!equipAvail)
+            {
+                SetValidationForEquipmentAvailability(ref result);
+                return result;
+            }
             if (IsAppointmentNOTMadeBetweenCorrectTime(request, ref result))
                 return result;
             return result;
@@ -98,27 +105,29 @@ namespace Elekta.Appointment.Services.Validation
             }
             return false;
         }
-                    
-        private async Task<HttpContent> IsEquipmentNOTAvailableAsync(AppointmentRequest request)
+
+        private async Task<bool> CheckEquipmentAvailableAsync(AppointmentRequest request)
         {
-          
             using (var httpClient = new HttpClient())
             {
-                //httpClient.BaseAddress = new Uri("http://localhost:3388/equipmentAvailability");
-                //httpClient.
-                //var httpResponse =  await httpClient.GetAsync();
-                //var content = httpResponse.Content;
-
                 var req = new Request
                 {
                     AvailabilityDate = request.AppointmentDate
                 };
-                var content = new StringContent(req.ToString(), System.Text.Encoding.UTF8, "application/json");
-                var result = await httpClient.PostAsync("http://localhost:3388/equipmentAvailability", content);
-                return result.Content;
+                var json = JsonConvert.SerializeObject(req);
+                var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+                var response = httpClient.PostAsync("http://localhost:3388/equipmentAvailability", content);
+                var res = await response.Result.Content.ReadAsStringAsync();
+                return bool.Parse(res);
             }
-           
         }
+
+        private void SetValidationForEquipmentAvailability(ref ValidationResult result)
+        {
+            result.PassedValidation = false;
+            result.Errors.Add("Equipment is not available at the given time!");
+        }
+
 
         public class Request
         {
