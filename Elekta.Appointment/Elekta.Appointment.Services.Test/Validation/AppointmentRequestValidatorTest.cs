@@ -119,11 +119,50 @@ namespace Elekta.Appointment.Services.Test.Validation
             //assert
             res.PassedValidation.Should().BeFalse();
             res.Errors.Should().Contain("The appointment does not exist!");
+        }
 
+        [Test]
+        public async Task Change_Appointment_AppointmentDoesNotExist_ReturnsFailedValidationResultAsync()
+        {
+            //arrange
+            var request = GetValidRequest();
+            request.AppointmentDate = new DateTime(2020, 10, 8, 10, 10, 10);
+
+            //act
+            var res = await _validator.ValidateChangeAppointmentRequestAsync(request);
+
+            //assert
+            res.PassedValidation.Should().BeFalse();
+            res.Errors.Should().Contain("The appointment does not exist!");
+        }
+
+        [Test]
+        public async Task Change_Appointment_NewAppointmentNOTLaterEnough_ReturnsFailedValidationResultAsync()
+        {
+            //arrange
+            var request = GetValidRequest();
+            request.ChangeAppointmentDate = new DateTime(2020, 08, 15, 10, 10, 10);
+
+            //act
+            var res = await _validator.ValidateChangeAppointmentRequestAsync(request);
+
+            //assert
+            res.PassedValidation.Should().BeFalse();
+            res.Errors.Should().Contain("Appointments can only be made for 2 weeks later at most!");
         }
 
         private AppointmentRequest GetValidRequest()
         {
+            var data = new AppointmentModel
+            {
+                Id = 1,
+                PatientId = 1,
+                AppointmentDate = date1.AddDays(25),
+                Status = true
+            };
+            _context.Appointments.Add(data);
+            _context.SaveChanges();
+
             var request = new AppointmentRequest
             {
                 PatientId = 1,
