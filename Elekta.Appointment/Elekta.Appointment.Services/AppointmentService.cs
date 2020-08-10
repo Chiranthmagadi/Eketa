@@ -46,7 +46,6 @@ namespace Elekta.Appointment.Services
             SendEmailToNotify();
         }
 
-
         public void CancelAppointment(AppointmentRequest request)
         {
             var validationResult = _validator.ValidateCancelAppointmentRequest(request);
@@ -73,7 +72,9 @@ namespace Elekta.Appointment.Services
 
             var appointment = _context.Appointments.FirstOrDefault(c => c.PatientId == request.PatientId
                                && c.AppointmentDate == request.AppointmentDate);
-            appointment.Status = false;
+
+            appointment.AppointmentDate = request.ChangeAppointmentDate;
+            appointment.Status = true;
             _context.Update(appointment);
             _context.SaveChanges();
             SendEmailToNotify();
