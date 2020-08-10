@@ -24,3 +24,12 @@ C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\PDR.PatientBooking.Data\obj\Deb
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\PDR.PatientBooking.Data\obj\Debug\netcoreapp3.1\PDR.PatientBooking.Data.csproj.CoreCompileInputs.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\PDR.PatientBooking.Data\obj\Debug\netcoreapp3.1\PDR.PatientBooking.Data.dll
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\PDR.PatientBooking.Data\obj\Debug\netcoreapp3.1\PDR.PatientBooking.Data.pdb
+C:\Elekta\Eketa\Elekta.Appointment\PDR.PatientBooking.Data\bin\Debug\netcoreapp3.1\PDR.PatientBooking.Data.deps.json
+C:\Elekta\Eketa\Elekta.Appointment\PDR.PatientBooking.Data\bin\Debug\netcoreapp3.1\PDR.PatientBooking.Data.dll
+C:\Elekta\Eketa\Elekta.Appointment\PDR.PatientBooking.Data\bin\Debug\netcoreapp3.1\PDR.PatientBooking.Data.pdb
+C:\Elekta\Eketa\Elekta.Appointment\PDR.PatientBooking.Data\obj\Debug\netcoreapp3.1\PDR.PatientBooking.Data.csprojAssemblyReference.cache
+C:\Elekta\Eketa\Elekta.Appointment\PDR.PatientBooking.Data\obj\Debug\netcoreapp3.1\PDR.PatientBooking.Data.AssemblyInfoInputs.cache
+C:\Elekta\Eketa\Elekta.Appointment\PDR.PatientBooking.Data\obj\Debug\netcoreapp3.1\PDR.PatientBooking.Data.AssemblyInfo.cs
+C:\Elekta\Eketa\Elekta.Appointment\PDR.PatientBooking.Data\obj\Debug\netcoreapp3.1\PDR.PatientBooking.Data.csproj.CoreCompileInputs.cache
+C:\Elekta\Eketa\Elekta.Appointment\PDR.PatientBooking.Data\obj\Debug\netcoreapp3.1\PDR.PatientBooking.Data.dll
+C:\Elekta\Eketa\Elekta.Appointment\PDR.PatientBooking.Data\obj\Debug\netcoreapp3.1\PDR.PatientBooking.Data.pdb
