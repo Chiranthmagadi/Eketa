@@ -30,11 +30,11 @@ namespace Elekta.Appointment.Controllers
         }
 
         [HttpPost("addappointment")]
-        public IActionResult MakeAppointment(AppointmentRequest request)
+        public async Task<IActionResult> MakeAppointmentAsync(AppointmentRequest request)
         {
             try
             {
-                _appointmentService.MakeAppointment(request);
+                await _appointmentService.MakeAppointmentAsync(request);
                 return Ok();
             }
             catch (ArgumentException ex)

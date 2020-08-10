@@ -27,7 +27,6 @@ C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
-C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.csprojAssemblyReference.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.AssemblyInfoInputs.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.AssemblyInfo.cs
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.csproj.CoreCompileInputs.cache

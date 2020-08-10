@@ -9,6 +9,7 @@ using Moq;
 using NUnit.Framework;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Elekta.Appointment.Services.Test.Validation
 {
@@ -48,28 +49,28 @@ namespace Elekta.Appointment.Services.Test.Validation
         }
 
         [Test]
-        public void MakeAppointment_AppointmentDateWithCorrectDateAndTime_ReturnsSuccessValidationResult()
+        public async Task MakeAppointment_AppointmentDateWithCorrectDateAndTime_ReturnsSuccessValidationResult()
         {
             //arrange
             var request = GetValidRequest();
             request.AppointmentDate = new DateTime(2020, 10, 8, 10, 10, 10);
 
             //act
-            var res = _validator.ValidateMakeAppointmentRequest(request);
+            var res = await _validator.ValidateMakeAppointmentRequestAsync(request);
 
             //assert
             res.PassedValidation.Should().BeTrue();
         }
 
         [Test]
-        public void MakeAppointment_AppointmentDateWithWrongTime_ReturnsFailedValidationResult()
+        public async Task MakeAppointment_AppointmentDateWithWrongTime_ReturnsFailedValidationResultAsync()
         {
             //arrange
             var request = GetValidRequest();
             request.AppointmentDate = new DateTime(2020, 10, 8, 7, 10, 10);
 
             //act
-            var res = _validator.ValidateMakeAppointmentRequest(request);
+            var res = await _validator.ValidateMakeAppointmentRequestAsync(request);
 
             //assert
             res.PassedValidation.Should().BeFalse();
@@ -77,14 +78,14 @@ namespace Elekta.Appointment.Services.Test.Validation
         }
 
         [Test]
-        public void MakeAppointment_AppointmentDateWithWrongDate_ReturnsFailedValidationResult()
+        public async Task MakeAppointment_AppointmentDateWithWrongDate_ReturnsFailedValidationResult()
         {
             //arrange
             var request = GetValidRequest();
             request.AppointmentDate = new DateTime(2020, 08, 15, 10, 10, 10);
 
             //act
-            var res = _validator.ValidateMakeAppointmentRequest(request);
+            var res = await _validator.ValidateMakeAppointmentRequestAsync(request);
 
             //assert
             res.PassedValidation.Should().BeFalse();
@@ -107,14 +108,14 @@ namespace Elekta.Appointment.Services.Test.Validation
         }
 
         [Test]
-        public void Cancel_Appointment_CannotBeCancelledBefore3Days_ReturnsFailedValidationResult()
+        public async Task Cancel_Appointment_CannotBeCancelledBefore3Days_ReturnsFailedValidationResult()
         {
             //arrange
             var request = GetValidRequest();
             request.AppointmentDate = new DateTime(2020, 10, 8, 10, 10, 10);
 
             //act
-            var res = _validator.ValidateMakeAppointmentRequest(request);
+            var res = await _validator.ValidateMakeAppointmentRequestAsync(request);
 
             //assert
             res.PassedValidation.Should().BeTrue();

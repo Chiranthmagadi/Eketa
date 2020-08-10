@@ -6,6 +6,7 @@ using Elekta.Appointment.Services.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Elekta.Appointment.Services
 {
@@ -26,9 +27,9 @@ namespace Elekta.Appointment.Services
             return result;
         }
 
-        public void MakeAppointment(AppointmentRequest request)
+        public async Task MakeAppointmentAsync(AppointmentRequest request)
         {
-            var validationResult = _validator.ValidateMakeAppointmentRequest(request);
+            var validationResult = await _validator.ValidateMakeAppointmentRequestAsync(request);
             if (!validationResult.PassedValidation)
             {
                 throw new ArgumentException(validationResult.Errors.First());
@@ -44,10 +45,6 @@ namespace Elekta.Appointment.Services
             SendEmailToNotify();
         }
 
-        private void SendEmailToNotify()
-        {
-            //send email
-        }
 
         public void CancelAppointment(AppointmentRequest request)
         {
@@ -57,14 +54,34 @@ namespace Elekta.Appointment.Services
                 throw new ArgumentException(validationResult.Errors.First());
             }
 
-            _context.Appointments.Add(newAppointment);
+            var appointment = _context.Appointments.FirstOrDefault(c => c.PatientId == request.PatientId
+                               && c.AppointmentDate == request.AppointmentDate);
+            appointment.Status = false;
+            _context.Update(appointment);
             _context.SaveChanges();
             SendEmailToNotify();
         }
 
         public void ChangeAppointment(AppointmentRequest request)
         {
-            throw new NotImplementedException();
+            var validationResult = _validator.ValidateChangeAppointmentRequest(request);
+            if (!validationResult.PassedValidation)
+            {
+                throw new ArgumentException(validationResult.Errors.First());
+            }
+
+            var appointment = _context.Appointments.FirstOrDefault(c => c.PatientId == request.PatientId
+                               && c.AppointmentDate == request.AppointmentDate);
+            appointment.Status = false;
+            _context.Update(appointment);
+            _context.SaveChanges();
+            SendEmailToNotify();
+        }
+
+
+        private void SendEmailToNotify()
+        {
+            //send email
         }
     }
 }

@@ -3,6 +3,7 @@ using Elekta.Appointment.Services.Requests;
 using System;
 using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Elekta.Appointment.Services.Validation
 {
@@ -20,9 +21,9 @@ namespace Elekta.Appointment.Services.Validation
             var result = new ValidationResult(true);
             if (IsAppointmentNOTExist(request, ref result))
                 return result;
-            if (IsAppointmentNOTLessthanGivenDays(request.NewAppointmentDate, daysBefore:2, ref result))
+            if (IsAppointmentNOTLessthanGivenDays(request.ChangeAppointmentDate, daysBefore:2, ref result))
                 return result;
-            if (IsAppointmentNOTLaterEnough(request.NewAppointmentDate, ref result))
+            if (IsAppointmentNOTLaterEnough(request.ChangeAppointmentDate, ref result))
                 return result;
             //if (IsEquipmentNOTAvailable(request, ref result))
             //    return result;
@@ -40,13 +41,14 @@ namespace Elekta.Appointment.Services.Validation
             return result;
         }
 
-        public ValidationResult ValidateMakeAppointmentRequest(AppointmentRequest request)
+        public async Task<ValidationResult> ValidateMakeAppointmentRequestAsync(AppointmentRequest request)
         {
             var result = new ValidationResult(true);
+            await IsEquipmentNOTAvailableAsync(request);
             if (IsAppointmentNOTLaterEnough(request.AppointmentDate, ref result))
                 return result;
-            if (IsEquipmentNOTAvailable(request, ref result))
-                return result;
+            //if (IsEquipmentNOTAvailable(request, ref result))
+            //    return result;
             if (IsAppointmentNOTMadeBetweenCorrectTime(request, ref result))
                 return result;
             return result;
@@ -65,7 +67,7 @@ namespace Elekta.Appointment.Services.Validation
 
         private bool IsAppointmentNOTExist(AppointmentRequest request, ref ValidationResult result)
         {
-            var isExist = _context.Appointments.Any(c => c.Patient.Id == request.PatientId && c.AppointmentDate == request.AppointmentDate);
+            var isExist = _context.Appointments.Any(c => c.Patient.Id == request.PatientId && c.AppointmentDate == request.AppointmentDate && c.Status == true);
             if (!isExist)
             {
                 result.PassedValidation = false;
@@ -97,13 +99,13 @@ namespace Elekta.Appointment.Services.Validation
             return false;
         }
                     
-        private bool IsEquipmentNOTAvailable(AppointmentRequest request, ref ValidationResult result)
+        private async Task IsEquipmentNOTAvailableAsync(AppointmentRequest request)
         {
           
             using (var httpClient = new HttpClient())
             {
-                var httpResponse =  httpClient.GetAsync($"{"http://localhost:3388/equipmentAvailability/"}{request.NewAppointmentDate}");
-                var content =  httpResponse.Result.Content.ReadAsStringAsync();
+                var httpResponse =  await httpClient.GetAsync($"{"http://localhost:3388/equipmentAvailability/"}{request.AppointmentDate}");
+                var content = httpResponse.Content;
             }
            
         }

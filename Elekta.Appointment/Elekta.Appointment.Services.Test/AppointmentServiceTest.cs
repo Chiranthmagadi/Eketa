@@ -8,6 +8,7 @@ using Moq;
 using NUnit.Framework;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Elekta.Appointment.Services.Test
 {
@@ -49,21 +50,21 @@ namespace Elekta.Appointment.Services.Test
 
         private void SetupMockDefaults()
         {
-            _validator.Setup(x => x.ValidateMakeAppointmentRequest(It.IsAny<AppointmentRequest>()))
-                .Returns(new ValidationResult(true));
+            _validator.Setup(x => x.ValidateMakeAppointmentRequestAsync(It.IsAny<AppointmentRequest>()))
+                .ReturnsAsync(new ValidationResult(true));
         }
 
         //[Test]
-        public void MakeAppointment_ValidatesRequest()
+        public async Task MakeAppointment_ValidatesRequestAsync()
         {
             //arrange
             var request = _fixture.Create<AppointmentRequest>();
 
             //act
-            _appointmentService.MakeAppointment(request);
+            await _appointmentService.MakeAppointmentAsync(request);
 
             //assert
-            _validator.Verify(x => x.ValidateMakeAppointmentRequest(request), Times.Once);
+            _validator.Verify(x => x.ValidateMakeAppointmentRequestAsync(request), Times.Once);
         }
 
         //[Test]
@@ -72,10 +73,10 @@ namespace Elekta.Appointment.Services.Test
             //arrange
             var failedValidationResult = new ValidationResult(false, _fixture.Create<string>());
 
-            _validator.Setup(x => x.ValidateMakeAppointmentRequest(It.IsAny<AppointmentRequest>())).Returns(failedValidationResult);
+            _validator.Setup(x => x.ValidateMakeAppointmentRequestAsync(It.IsAny<AppointmentRequest>())).ReturnsAsync(failedValidationResult);
 
             //act
-            var exception = Assert.Throws<ArgumentException>(() => _appointmentService.MakeAppointment(_fixture.Create<AppointmentRequest>()));
+            var exception = Assert.Throws<ArgumentException>(async () => await _appointmentService.MakeAppointmentAsync(_fixture.Create<AppointmentRequest>()));
              
             //assert
             exception.Message.Should().Be(failedValidationResult.Errors.First());
