@@ -1,5 +1,6 @@
 ﻿using Elekta.Appointment.Data;
 using Elekta.Appointment.Services.Requests;
+using Newtonsoft.Json;
 using System;
 using System.Linq;
 using System.Net.Http;
@@ -99,11 +100,11 @@ namespace Elekta.Appointment.Services.Validation
                     
         private bool IsEquipmentNOTAvailable(AppointmentRequest request, ref ValidationResult result)
         {
-          
             using (var httpClient = new HttpClient())
             {
                 var httpResponse =  httpClient.GetAsync($"{"http://localhost:3388/equipmentAvailability/"}{request.NewAppointmentDate}");
-                var content =  httpResponse.Result.Content.ReadAsStringAsync();
+                var content =  httpResponse.Result;
+                
             }
            
         }
