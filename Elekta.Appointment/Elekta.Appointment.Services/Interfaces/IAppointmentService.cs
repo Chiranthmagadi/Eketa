@@ -11,7 +11,7 @@ namespace Elekta.Appointment.Services.Interfaces
     {
         Task MakeAppointmentAsync(AppointmentRequest request);
         void CancelAppointment(AppointmentRequest request);
-        void ChangeAppointment(AppointmentRequest request);
+        Task ChangeAppointmentAsync(AppointmentRequest request);
         List<AppointmentModel> GetAllAppointments();
     }
 }

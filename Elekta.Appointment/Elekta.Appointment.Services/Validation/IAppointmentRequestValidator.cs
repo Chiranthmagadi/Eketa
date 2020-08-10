@@ -7,6 +7,6 @@ namespace Elekta.Appointment.Services.Validation
     {
         Task<ValidationResult> ValidateMakeAppointmentRequestAsync(AppointmentRequest request);
         ValidationResult ValidateCancelAppointmentRequest(AppointmentRequest request);
-        ValidationResult ValidateChangeAppointmentRequest(AppointmentRequest request);
+        Task<ValidationResult> ValidateChangeAppointmentRequestAsync(AppointmentRequest request);
     }
 }

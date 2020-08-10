@@ -14,15 +14,20 @@ namespace Elekta.Equipment.RemoteService
             _context = context;
         }
 
-        public bool? IsEquipmentAvailable(DateTime date)
+        public bool IsEquipmentAvailable(DateTime date)
         {
+            var result = false;
             var equipment = _context.Equipments.FirstOrDefault(c => c.Date == date);
-            return equipment?.IsAvailable;
+            if (equipment != null)
+            {
+                result = equipment.IsAvailable;
+            }
+            return result;
         }
     }
 
     public interface IService
     {
-        bool? IsEquipmentAvailable(DateTime date);
+        bool IsEquipmentAvailable(DateTime date);
     }
 }
