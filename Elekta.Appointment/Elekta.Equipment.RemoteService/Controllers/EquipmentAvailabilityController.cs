@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Elekta.Appointment.Services.Requests;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,9 +19,9 @@ namespace Elekta.Equipment.RemoteService.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetEquipmentAvailability(DateTime date)
+        public IActionResult GetEquipmentAvailability(Request request)
         {
-            var result = _service.IsEquipmentAvailable(date);
+            var result = _service.IsEquipmentAvailable(request.AvailabilityDate);
             return Ok(result);
         }
     }

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace Elekta.Equipment.RemoteService
 {
@@ -29,6 +30,10 @@ namespace Elekta.Equipment.RemoteService
             services.AddDbContext<EquipmentAvailabilityContext>(options => options
                     .UseInMemoryDatabase(databaseName: "EquipmentsAvailability")
                     .UseLazyLoadingProxies());
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "EquipmentApi", Version = "v1" });
+            });
 
             services.AddScoped<IService, Service>();
         }
@@ -55,7 +60,7 @@ namespace Elekta.Equipment.RemoteService
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "AppointmentApi V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "EquipmentApi V1");
                 c.RoutePrefix = string.Empty;
             });
         }

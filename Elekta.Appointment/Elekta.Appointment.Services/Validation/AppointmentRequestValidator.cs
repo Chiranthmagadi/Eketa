@@ -99,15 +99,30 @@ namespace Elekta.Appointment.Services.Validation
             return false;
         }
                     
-        private async Task IsEquipmentNOTAvailableAsync(AppointmentRequest request)
+        private async Task<HttpContent> IsEquipmentNOTAvailableAsync(AppointmentRequest request)
         {
           
             using (var httpClient = new HttpClient())
             {
-                var httpResponse =  await httpClient.GetAsync($"{"http://localhost:3388/equipmentAvailability/"}{request.AppointmentDate}");
-                var content = httpResponse.Content;
+                //httpClient.BaseAddress = new Uri("http://localhost:3388/equipmentAvailability");
+                //httpClient.
+                //var httpResponse =  await httpClient.GetAsync();
+                //var content = httpResponse.Content;
+
+                var req = new Request
+                {
+                    AvailabilityDate = request.AppointmentDate
+                };
+                var content = new StringContent(req.ToString(), System.Text.Encoding.UTF8, "application/json");
+                var result = await httpClient.PostAsync("http://localhost:3388/equipmentAvailability", content);
+                return result.Content;
             }
            
+        }
+
+        public class Request
+        {
+            public DateTime AvailabilityDate { get; set; }
         }
     }
 }

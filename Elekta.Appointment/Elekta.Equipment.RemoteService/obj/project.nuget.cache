@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JQbPdbCjoSGziiR7nzdxjkGGsz1WJty/kLDDBtueb1ON3+A0IV2kQaV9VV5q/Nsg19UY47sz2Dn0Lw4VvQLmRw==",
+  "dgSpecHash": "ULDk4oahH7dvQL30LmNSMbuDleos5BIPnUk+d6MxUnT04BSVEJ1CkGaX8FVXvssJ0yKlXuik9DYc568Et3kuaw==",
   "success": true,
   "projectFilePath": "C:\\Projects\\Test\\Raju\\Elekta2\\Elekta.Appointment\\Elekta.Equipment.RemoteService\\Elekta.Equipment.RemoteService.csproj",
   "expectedPackageFiles": [
@@ -25,7 +25,7 @@
     "C:\\Users\\imthi\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.6\\microsoft.extensions.primitives.3.1.6.nupkg.sha512",
     "C:\\Users\\imthi\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\imthi\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
-    "C:\\Users\\imthi\\.nuget\\packages\\microsoft.openapi\\1.1.4\\microsoft.openapi.1.1.4.nupkg.sha512",
+    "C:\\Users\\imthi\\.nuget\\packages\\microsoft.openapi\\1.2.2\\microsoft.openapi.1.2.2.nupkg.sha512",
     "C:\\Users\\imthi\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\imthi\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\imthi\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

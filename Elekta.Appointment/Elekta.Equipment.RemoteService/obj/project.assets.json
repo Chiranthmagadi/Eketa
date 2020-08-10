@@ -253,7 +253,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.OpenApi/1.1.4": {
+      "Microsoft.OpenApi/1.2.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {}
@@ -1999,10 +1999,10 @@
         "runtime.json"
       ]
     },
-    "Microsoft.OpenApi/1.1.4": {
-      "sha512": "6SW0tpbJslc8LAY1XniRfLVcJa7bJUbbwvo2/ZRqfkMbJrsqIj9045vg3STtZhDhYRKhpYgjqGU11eeW4Pzyrg==",
+    "Microsoft.OpenApi/1.2.2": {
+      "sha512": "+diTWkzj9OSDKhZj56sUKu0F4N4yAu5j1pRSn3/2D8sD2gQcUyEncbDbqhe6SfRlZut2QytyH8zoaexrd1fKYw==",
       "type": "package",
-      "path": "microsoft.openapi/1.1.4",
+      "path": "microsoft.openapi/1.2.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2012,7 +2012,7 @@
         "lib/netstandard2.0/Microsoft.OpenApi.dll",
         "lib/netstandard2.0/Microsoft.OpenApi.pdb",
         "lib/netstandard2.0/Microsoft.OpenApi.xml",
-        "microsoft.openapi.1.1.4.nupkg.sha512",
+        "microsoft.openapi.1.2.2.nupkg.sha512",
         "microsoft.openapi.nuspec"
       ]
     },
@@ -5736,6 +5736,7 @@
       "Microsoft.EntityFrameworkCore >= 3.1.6",
       "Microsoft.EntityFrameworkCore.InMemory >= 3.1.6",
       "Microsoft.EntityFrameworkCore.Proxies >= 3.1.6",
+      "Microsoft.OpenApi >= 1.2.2",
       "Swashbuckle.AspNetCore.Swagger >= 5.5.1",
       "Swashbuckle.AspNetCore.SwaggerGen >= 5.5.1",
       "Swashbuckle.AspNetCore.SwaggerUi >= 5.5.1"
@@ -5796,6 +5797,10 @@
           "Microsoft.EntityFrameworkCore.Proxies": {
             "target": "Package",
             "version": "[3.1.6, )"
+          },
+          "Microsoft.OpenApi": {
+            "target": "Package",
+            "version": "[1.2.2, )"
           },
           "Swashbuckle.AspNetCore.Swagger": {
             "target": "Package",

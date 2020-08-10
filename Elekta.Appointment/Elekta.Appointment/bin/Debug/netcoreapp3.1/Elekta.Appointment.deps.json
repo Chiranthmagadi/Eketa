@@ -1739,7 +1739,8 @@
       },
       "Elekta.Appointment.Services/1.0.0": {
         "dependencies": {
-          "Elekta.Appointment.Data": "1.0.0"
+          "Elekta.Appointment.Data": "1.0.0",
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "Elekta.Appointment.Services.dll": {}

@@ -29,8 +29,6 @@ C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.AssemblyInfoInputs.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.AssemblyInfo.cs
-C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.csproj.CoreCompileInputs.cache
-C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.MvcApplicationPartsAssemblyInfo.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.RazorTargetAssemblyInfo.cache
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.csproj.CopyComplete
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\staticwebassets\Elekta.Equipment.RemoteService.StaticWebAssets.Manifest.cache
@@ -84,3 +82,11 @@ C:\Elekta\Eketa\Elekta.Appointment\Elekta.Equipment.RemoteService\bin\Debug\netc
 C:\Elekta\Eketa\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.csproj.CoreCompileInputs.cache
 C:\Elekta\Eketa\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.MvcApplicationPartsAssemblyInfo.cs
 C:\Elekta\Eketa\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.MvcApplicationPartsAssemblyInfo.cache
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.csprojAssemblyReference.cache
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.csproj.CoreCompileInputs.cache
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.MvcApplicationPartsAssemblyInfo.cache
