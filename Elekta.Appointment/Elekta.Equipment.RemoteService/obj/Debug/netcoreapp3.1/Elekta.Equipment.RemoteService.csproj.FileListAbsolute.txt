@@ -89,3 +89,4 @@ C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.MvcApplicationPartsAssemblyInfo.cs
 C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.MvcApplicationPartsAssemblyInfo.cache
 C:\Elekta\Eketa\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.csprojAssemblyReference.cache
+C:\Projects\Test\Raju\Elekta2\Elekta.Appointment\Elekta.Equipment.RemoteService\obj\Debug\netcoreapp3.1\Elekta.Equipment.RemoteService.csprojAssemblyReference.cache

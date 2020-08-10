@@ -77,7 +77,7 @@ namespace Elekta.Appointment.Services.Validation
 
         private bool IsAppointmentNOTExist(AppointmentRequest request, ref ValidationResult result)
         {
-            var isExist = _context.Appointments.Any(c => c.Patient.Id == request.PatientId && c.AppointmentDate == request.AppointmentDate && c.Status == true);
+            var isExist = _context.Appointments.Any(c => c.PatientId == request.PatientId && c.AppointmentDate == request.AppointmentDate && c.Status == true);
             if (!isExist)
             {
                 result.PassedValidation = false;
