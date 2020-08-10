@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Elekta.Equipment.RemoteService.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class EquipmentAvailabilityController : ControllerBase
     {
         private readonly IService _service;

@@ -19,7 +19,6 @@ namespace Elekta.Appointment.Controllers
         public PrivateController(IAppointmentService appointmentService)
         {
             _appointmentService = appointmentService;
-            //
         }
 
         [HttpGet]

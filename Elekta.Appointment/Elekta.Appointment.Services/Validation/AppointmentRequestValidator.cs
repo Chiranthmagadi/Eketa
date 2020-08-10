@@ -2,6 +2,7 @@
 using Elekta.Appointment.Services.Requests;
 using System;
 using System.Linq;
+using System.Net.Http;
 
 namespace Elekta.Appointment.Services.Validation
 {
@@ -44,8 +45,8 @@ namespace Elekta.Appointment.Services.Validation
             var result = new ValidationResult(true);
             if (IsAppointmentNOTLaterEnough(request.AppointmentDate, ref result))
                 return result;
-            //if (IsEquipmentNOTAvailable(request, ref result))
-            //    return result;
+            if (IsEquipmentNOTAvailable(request, ref result))
+                return result;
             if (IsAppointmentNOTMadeBetweenCorrectTime(request, ref result))
                 return result;
             return result;
@@ -85,7 +86,6 @@ namespace Elekta.Appointment.Services.Validation
             return false;
         }
 
-
         private bool IsAppointmentNOTMadeBetweenCorrectTime(AppointmentRequest request, ref ValidationResult result)
         {
             if (!((request.AppointmentDate.Hour >= 8) && (request.AppointmentDate.Hour <= 16)))
@@ -95,12 +95,17 @@ namespace Elekta.Appointment.Services.Validation
                 return true;
             }
             return false;
-        }  
-        
+        }
+                    
         private bool IsEquipmentNOTAvailable(AppointmentRequest request, ref ValidationResult result)
         {
-            throw new NotImplementedException();
+          
+            using (var httpClient = new HttpClient())
+            {
+                var httpResponse =  httpClient.GetAsync($"{"http://localhost:3388/equipmentAvailability/"}{request.NewAppointmentDate}");
+                var content =  httpResponse.Result.Content.ReadAsStringAsync();
+            }
+           
         }
-
     }
 }
