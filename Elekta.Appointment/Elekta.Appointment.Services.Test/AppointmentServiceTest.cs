@@ -54,7 +54,7 @@ namespace Elekta.Appointment.Services.Test
                 .ReturnsAsync(new ValidationResult(true));
         }
 
-        //[Test]
+        [Test]
         public async Task MakeAppointment_ValidatesRequestAsync()
         {
             //arrange
@@ -66,21 +66,5 @@ namespace Elekta.Appointment.Services.Test
             //assert
             _validator.Verify(x => x.ValidateMakeAppointmentRequestAsync(request), Times.Once);
         }
-
-        //[Test]
-        public void MakeAppointment_ValidatorFails_ThrowsArgumentException()
-        {
-            //arrange
-            var failedValidationResult = new ValidationResult(false, _fixture.Create<string>());
-
-            _validator.Setup(x => x.ValidateMakeAppointmentRequestAsync(It.IsAny<AppointmentRequest>())).ReturnsAsync(failedValidationResult);
-
-            //act
-            var exception = Assert.Throws<ArgumentException>(async () => await _appointmentService.MakeAppointmentAsync(_fixture.Create<AppointmentRequest>()));
-             
-            //assert
-            exception.Message.Should().Be(failedValidationResult.Errors.First());
-        }
-
     }
 }

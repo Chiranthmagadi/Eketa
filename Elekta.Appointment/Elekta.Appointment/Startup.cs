@@ -1,5 +1,6 @@
 using Elekta.Appointment.Data;
 using Elekta.Appointment.Services;
+using Elekta.Appointment.Services.Helper;
 using Elekta.Appointment.Services.Interfaces;
 using Elekta.Appointment.Services.Validation;
 using Microsoft.AspNetCore.Builder;
@@ -35,6 +36,7 @@ namespace Elekta.Appointment
 
             services.AddScoped<IAppointmentService, AppointmentService>();
             services.AddScoped<IAppointmentRequestValidator, AppointmentRequestValidator>();
+            services.AddScoped<IHttpHandler, HttpClientHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
