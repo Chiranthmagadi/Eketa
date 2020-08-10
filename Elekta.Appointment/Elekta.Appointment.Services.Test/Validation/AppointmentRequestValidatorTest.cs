@@ -1,6 +1,7 @@
 ﻿using AutoFixture;
 using Elekta.Appointment.Data;
 using Elekta.Appointment.Data.Modles;
+using Elekta.Appointment.Services.Helper;
 using Elekta.Appointment.Services.Requests;
 using Elekta.Appointment.Services.Validation;
 using FluentAssertions;
@@ -9,6 +10,7 @@ using Moq;
 using NUnit.Framework;
 using System;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Elekta.Appointment.Services.Test.Validation
@@ -21,7 +23,7 @@ namespace Elekta.Appointment.Services.Test.Validation
         private IFixture _fixture;
 
         private AppointmentDbContext _context;
-
+        private Mock<IHttpHandler> _httpHandlerMock;
         private AppointmentRequestValidator _validator;
 
         private DateTime date1 = new DateTime(2020, 08, 20, 9, 0, 0);
@@ -41,11 +43,23 @@ namespace Elekta.Appointment.Services.Test.Validation
 
             // Mock setup
             _context = new AppointmentDbContext(new DbContextOptionsBuilder<AppointmentDbContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options);
+            _httpHandlerMock = _mockRepository.Create<IHttpHandler>();
+
+            // Mock default
+            SetupMockDefaults();
+
 
             // Sut instantiation
             _validator = new AppointmentRequestValidator(
-                _context
+                _context, _httpHandlerMock.Object
             );
+        }
+
+        private void SetupMockDefaults()
+        {
+            var msg = new HttpResponseMessage();
+            msg.Content = new StringContent("true");
+            _httpHandlerMock.Setup(x => x.PostAsync(It.IsAny<string>(), It.IsAny<HttpContent>())).Returns(Task.FromResult(msg));
         }
 
         [Test]
@@ -104,20 +118,8 @@ namespace Elekta.Appointment.Services.Test.Validation
 
             //assert
             res.PassedValidation.Should().BeFalse();
-        }
+            res.Errors.Should().Contain("The appointment does not exist!");
 
-        [Test]
-        public async Task Cancel_Appointment_CannotBeCancelledBefore3Days_ReturnsFailedValidationResult()
-        {
-            //arrange
-            var request = GetValidRequest();
-            request.AppointmentDate = new DateTime(2020, 10, 8, 10, 10, 10);
-
-            //act
-            var res = await _validator.ValidateMakeAppointmentRequestAsync(request);
-
-            //assert
-            res.PassedValidation.Should().BeFalse();
         }
 
         private AppointmentRequest GetValidRequest()

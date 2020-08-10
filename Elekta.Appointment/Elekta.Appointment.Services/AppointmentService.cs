@@ -36,8 +36,9 @@ namespace Elekta.Appointment.Services
             }
             var newAppointment = new AppointmentModel
             {
+                PatientId = request.PatientId,
                 AppointmentDate = request.AppointmentDate,
-
+                Status = true
             };
 
             _context.Appointments.Add(newAppointment);
@@ -77,7 +78,6 @@ namespace Elekta.Appointment.Services
             _context.SaveChanges();
             SendEmailToNotify();
         }
-
 
         private void SendEmailToNotify()
         {

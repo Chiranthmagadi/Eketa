@@ -1,4 +1,5 @@
 ﻿using Elekta.Appointment.Data;
+using Elekta.Appointment.Services.Helper;
 using Elekta.Appointment.Services.Requests;
 using Newtonsoft.Json;
 using System;
@@ -11,10 +12,12 @@ namespace Elekta.Appointment.Services.Validation
     public class AppointmentRequestValidator : IAppointmentRequestValidator
     {
         private readonly AppointmentDbContext _context;
+        private readonly IHttpHandler httpHandler;
 
-        public AppointmentRequestValidator(AppointmentDbContext context)
+        public AppointmentRequestValidator(AppointmentDbContext context, IHttpHandler httpHandler)
         {
             _context = context;
+            this.httpHandler = httpHandler;
         }
 
         public async Task<ValidationResult> ValidateChangeAppointmentRequestAsync(AppointmentRequest request)
@@ -116,7 +119,7 @@ namespace Elekta.Appointment.Services.Validation
                 };
                 var json = JsonConvert.SerializeObject(req);
                 var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-                var response = httpClient.PostAsync("http://localhost:3388/equipmentAvailability", content);
+                var response = httpHandler.PostAsync("http://localhost:3388/equipmentAvailability", content);
                 var res = await response.Result.Content.ReadAsStringAsync();
                 return bool.Parse(res);
             }
