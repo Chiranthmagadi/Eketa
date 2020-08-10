@@ -24,10 +24,10 @@ namespace Elekta.Appointment.Services.Test.Validation
 
         private AppointmentRequestValidator _validator;
 
-        //do not remove
-        private static DateTime _testDataPass = new DateTime(2020, 11, 8, 9, 0, 0);
-        private static DateTime _testDataFail1 = new DateTime(2020, 11, 8, 7, 0, 0);
-        private static DateTime _testDataFail2 = new DateTime(2020, 08, 12, 9, 0, 0);
+        private DateTime date1 = new DateTime(2020, 08, 20, 9, 0, 0);
+        private DateTime date2 = new DateTime(2020, 08, 20, 10, 0, 0);
+        private DateTime date3 = new DateTime(2020, 08, 20, 11, 0, 0);
+        private DateTime date4 = new DateTime(2020, 08, 20, 12, 0, 0);
 
         [SetUp]
         public void SetUp()
@@ -53,7 +53,6 @@ namespace Elekta.Appointment.Services.Test.Validation
         {
             //arrange
             var request = GetValidRequest();
-            request.AppointmentDate = new DateTime(2020, 10, 8, 10, 10, 10);
 
             //act
             var res = await _validator.ValidateMakeAppointmentRequestAsync(request);
@@ -118,20 +117,18 @@ namespace Elekta.Appointment.Services.Test.Validation
             var res = await _validator.ValidateMakeAppointmentRequestAsync(request);
 
             //assert
-            res.PassedValidation.Should().BeTrue();
+            res.PassedValidation.Should().BeFalse();
         }
 
         private AppointmentRequest GetValidRequest()
         {
-            var data = _fixture.Create<AppointmentModel>();
-            _context.Appointments.Add(data);
-            _context.SaveChanges();
+            var request = new AppointmentRequest
+            {
+                PatientId = 1,
+                AppointmentDate = date1.AddDays(25),
+                ChangeAppointmentDate = date1.AddDays(30)
+            };
 
-            var request = _fixture.Build<AppointmentRequest>()
-                .With(x => x.PatientId, data.Id)
-                .With(x => x.AppointmentDate, data.AppointmentDate)
-                //.With(x => x.NewAppointmentDate, data.NewAppointmentDate)
-                .Create();
             return request;
         }
     }

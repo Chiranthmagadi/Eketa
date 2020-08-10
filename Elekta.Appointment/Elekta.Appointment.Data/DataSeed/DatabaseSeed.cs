@@ -58,55 +58,60 @@ namespace Elekta.Appointment.Data.DataSeed
 
         private List<AppointmentModel> AddAppointments()
         {
+            var date1 = new DateTime(2020, 08, 20, 9, 0, 0);
+            var date2 = new DateTime(2020, 08, 20, 10, 0, 0);
+            var date3 = new DateTime(2020, 08, 20, 11, 0, 0);
+            var date4 = new DateTime(2020, 08, 20, 12, 0, 0);
+
             var appointments = new List<AppointmentModel>
             {
                 new AppointmentModel
                 {
                     Id=1,
-                    AppointmentDate = DateTime.Now.AddDays(25),
+                    AppointmentDate = date1.AddDays(25),
                     Status = true
                 },
                 new AppointmentModel
                 {
                     Id=2,
-                    AppointmentDate = DateTime.Now.AddDays(30),
-                    Status = false
+                    AppointmentDate = date2.AddDays(30),
+                    Status = true
                 },
                 new AppointmentModel
                 {
                     Id=3,
-                    AppointmentDate = DateTime.Now.AddDays(35),
+                    AppointmentDate = date3.AddDays(35),
                     Status = true
                 },
                 new AppointmentModel
                 {
                     Id=4,
-                    AppointmentDate = DateTime.Now.AddDays(40),
-                    Status = false
+                    AppointmentDate = date4.AddDays(40),
+                    Status = true
                 },
                 new AppointmentModel
                 {
                     Id=5,
-                    AppointmentDate = DateTime.Now.AddDays(45),
+                    AppointmentDate = date1.AddDays(45),
                     Status = true
                 },
                 new AppointmentModel
                 {
                     Id=6,
-                    AppointmentDate = DateTime.Now.AddDays(50),
-                    Status = false
+                    AppointmentDate = date2.AddDays(50),
+                    Status = true
                 },
                 new AppointmentModel
                 {
                     Id=7,
-                    AppointmentDate = DateTime.Now.AddDays(55),
+                    AppointmentDate = date3.AddDays(55),
                     Status = true
                 },
                 new AppointmentModel
                 {
                     Id=8,
-                    AppointmentDate = DateTime.Now.AddDays(60),
-                    Status = false
+                    AppointmentDate = date4.AddDays(60),
+                    Status = true
                 },
             };
 
