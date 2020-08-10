@@ -85,7 +85,6 @@ namespace Elekta.Appointment.Services.Validation
             return false;
         }
 
-
         private bool IsAppointmentNOTMadeBetweenCorrectTime(AppointmentRequest request, ref ValidationResult result)
         {
             if (!((request.AppointmentDate.Hour >= 8) && (request.AppointmentDate.Hour <= 16)))
@@ -95,8 +94,8 @@ namespace Elekta.Appointment.Services.Validation
                 return true;
             }
             return false;
-        }  
-        
+        }
+
         private bool IsEquipmentNOTAvailable(AppointmentRequest request, ref ValidationResult result)
         {
             throw new NotImplementedException();

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Elekta.Appointment.Data.DataSeed
 {
+    /// <summary>
+    /// Data seed class to seed data locally.
+    /// </summary>
     public class DatabaseSeed
     {
         private readonly AppointmentDbContext _context;
@@ -20,7 +23,7 @@ namespace Elekta.Appointment.Data.DataSeed
 
 
             LinkPatientsToAppointment(patients, appointments);
-          
+
         }
 
         private List<Patient> AddPatients()
