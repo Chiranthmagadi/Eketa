@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Elekta.Equipment.RemoteService
 {
-    public class Equipment
+    public class EquipmentAvailable
     {
-        public int Id { get; set; }
+        public int EquipmentId { get; set; }
         public bool IsAvailable { get; set; }
         public DateTime Date { get; set; }
     }

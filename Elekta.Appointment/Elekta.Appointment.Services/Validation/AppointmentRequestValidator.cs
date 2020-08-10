@@ -111,8 +111,6 @@ namespace Elekta.Appointment.Services.Validation
 
         private async Task<bool> CheckEquipmentAvailableAsync(AppointmentRequest request)
         {
-            using (var httpClient = new HttpClient())
-            {
                 var req = new Request
                 {
                     AvailabilityDate = request.AppointmentDate
@@ -122,7 +120,6 @@ namespace Elekta.Appointment.Services.Validation
                 var response = httpHandler.PostAsync("http://localhost:3388/equipmentAvailability", content);
                 var res = await response.Result.Content.ReadAsStringAsync();
                 return bool.Parse(res);
-            }
         }
 
         private void SetValidationForEquipmentAvailability(ref ValidationResult result)

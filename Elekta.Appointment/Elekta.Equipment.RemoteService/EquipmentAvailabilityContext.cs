@@ -8,6 +8,6 @@ namespace Elekta.Equipment.RemoteService
         {
         }
 
-        public DbSet<Equipment> Equipments { get; set; }
+        public DbSet<EquipmentAvailable> Equipments { get; set; }
     }
 }

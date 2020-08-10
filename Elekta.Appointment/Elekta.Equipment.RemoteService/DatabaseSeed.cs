@@ -22,33 +22,33 @@ namespace Elekta.Equipment.RemoteService
              _context.SaveChanges();
        }
 
-        private List<Equipment> AddEquipments()
+        private List<EquipmentAvailable> AddEquipments()
         {
-            var equipments = new List<Equipment>
+            var equipments = new List<EquipmentAvailable>
             {
-                new Equipment
+                new EquipmentAvailable
                 {
-                    Id = 1,
+                    EquipmentId = 1,
                     IsAvailable = true,
-                    Date = new DateTime(2020,11,02,08,00,00)
+                    Date = new DateTime(2020,11,10,08,00,00)
                 },
-                new Equipment
+                new EquipmentAvailable
                 {
-                    Id = 2,
-                    IsAvailable = true,
-                    Date = new DateTime(2020,11,02,09,00,00)
+                    EquipmentId = 1,
+                    IsAvailable = false,
+                    Date = new DateTime(2020,11,10,09,00,00)
                 },
-                new Equipment
+                new EquipmentAvailable
                 {
-                    Id = 3,
-                    IsAvailable = true,
-                    Date = new DateTime(2020,11,02,08,00,00)
+                    EquipmentId = 2,
+                    IsAvailable = false,
+                    Date = new DateTime(2020,11,10,08,00,00)
                 },
-                new Equipment
+                new EquipmentAvailable
                 {
-                    Id = 4,
+                    EquipmentId = 2,
                     IsAvailable = true,
-                    Date = new DateTime(2020,11,02,09,00,00)
+                    Date = new DateTime(2020,11,10,09,00,00)
                 }
             };
 
