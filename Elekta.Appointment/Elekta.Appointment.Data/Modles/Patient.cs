@@ -7,14 +7,8 @@ namespace Elekta.Appointment.Data.Modles
 {
     public class Patient
     {
-        [Key]
-        public int PatientId { get; set; }
-        [Required]
-        [MinLength(2)]
-        [MaxLength(50)]
+        public int Id { get; set; }
         public string PatientName { get; set; }
-        [Required]
-        [EmailAddress]
         public string PatientEmailId { get; set; }
     }
 }

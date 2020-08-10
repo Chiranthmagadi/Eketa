@@ -52,16 +52,11 @@ namespace Elekta.Appointment.Services
 
         public void CancelAppointment(AppointmentRequest request)
         {
-            var validationResult = _validator.ValidateMakeAppointmentRequest(request);
+            var validationResult = _validator.ValidateCancelAppointmentRequest(request);
             if (!validationResult.PassedValidation)
             {
                 throw new ArgumentException(validationResult.Errors.First());
             }
-            var newAppointment = new AppointmentModel
-            {
-                AppointmentDate = request.AppointmentDate,
-
-            };
 
             _context.Appointments.Add(newAppointment);
             _context.SaveChanges();

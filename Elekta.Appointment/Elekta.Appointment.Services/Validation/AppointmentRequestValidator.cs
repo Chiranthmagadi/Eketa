@@ -19,7 +19,7 @@ namespace Elekta.Appointment.Services.Validation
             var result = new ValidationResult(true);
             if (IsAppointmentNOTExist(request, ref result))
                 return result;
-            if (IsAppointmentNOTLessthanGivenDays(request.NewAppointmentDate, 2, ref result))
+            if (IsAppointmentNOTLessthanGivenDays(request.NewAppointmentDate, daysBefore:2, ref result))
                 return result;
             if (IsAppointmentNOTLaterEnough(request.NewAppointmentDate, ref result))
                 return result;
@@ -34,7 +34,7 @@ namespace Elekta.Appointment.Services.Validation
             var result = new ValidationResult(true);
             if (IsAppointmentNOTExist(request, ref result))
                 return result;
-            if (IsAppointmentNOTLessthanGivenDays(request.AppointmentDate, 3, ref result))
+            if (IsAppointmentNOTLessthanGivenDays(request.AppointmentDate, daysBefore:3, ref result))
                 return result;
             return result;
         }
@@ -64,7 +64,7 @@ namespace Elekta.Appointment.Services.Validation
 
         private bool IsAppointmentNOTExist(AppointmentRequest request, ref ValidationResult result)
         {
-            var isExist = _context.Appointments.Any(c => c.Patient.PatientId == request.PatientId && c.AppointmentDate == request.AppointmentDate);
+            var isExist = _context.Appointments.Any(c => c.Patient.Id == request.PatientId && c.AppointmentDate == request.AppointmentDate);
             if (!isExist)
             {
                 result.PassedValidation = false;

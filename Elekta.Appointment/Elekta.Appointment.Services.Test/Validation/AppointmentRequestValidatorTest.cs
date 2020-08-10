@@ -5,14 +5,18 @@ using Elekta.Appointment.Services.Requests;
 using Elekta.Appointment.Services.Validation;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
+using Moq;
 using NUnit.Framework;
 using System;
+using System.Linq;
 
 namespace Elekta.Appointment.Services.Test.Validation
 {
     [TestFixture]
     public class AppointmentRequestValidatorTest
     {
+        private MockRepository _mockRepository;
+
         private IFixture _fixture;
 
         private AppointmentDbContext _context;
@@ -20,25 +24,22 @@ namespace Elekta.Appointment.Services.Test.Validation
         private AppointmentRequestValidator _validator;
 
         //do not remove
-        private static DateTime _testData1 = new DateTime(2020, 11, 8, 9, 0, 0);
-        private static DateTime _testData2 = new DateTime(2020, 11, 8, 7, 0, 0);
-        private static DateTime _testData3 = new DateTime(2020, 08, 12, 9, 0, 0);
+        private static DateTime _testDataPass = new DateTime(2020, 11, 8, 9, 0, 0);
+        private static DateTime _testDataFail1 = new DateTime(2020, 11, 8, 7, 0, 0);
+        private static DateTime _testDataFail2 = new DateTime(2020, 08, 12, 9, 0, 0);
 
         [SetUp]
         public void SetUp()
         {
             // Boilerplate
+            _mockRepository = new MockRepository(MockBehavior.Strict);
             _fixture = new Fixture();
 
             //Prevent fixture from generating from entity circular references 
             _fixture.Behaviors.Add(new OmitOnRecursionBehavior(1));
 
             // Mock setup
-            _context = new AppointmentDbContext(new DbContextOptionsBuilder<AppointmentDbContext>()
-                .UseInMemoryDatabase(Guid.NewGuid().ToString()).Options);
-
-            // Mock default
-            SetupMockDefaults();
+            _context = new AppointmentDbContext(new DbContextOptionsBuilder<AppointmentDbContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options);
 
             // Sut instantiation
             _validator = new AppointmentRequestValidator(
@@ -46,17 +47,12 @@ namespace Elekta.Appointment.Services.Test.Validation
             );
         }
 
-        private void SetupMockDefaults()
-        {
-
-        }
-
         [Test]
-        public void MAkeAppointment_AppointmentDateWithCorrectDateAndTime_ReturnsSuccessValidationResult([ValueSource("_testDataPass")] DateTime bookingDate)
+        public void MakeAppointment_AppointmentDateWithCorrectDateAndTime_ReturnsSuccessValidationResult()
         {
             //arrange
             var request = GetValidRequest();
-            request.AppointmentDate = bookingDate;
+            request.AppointmentDate = new DateTime(2020, 10, 8, 10, 10, 10);
 
             //act
             var res = _validator.ValidateMakeAppointmentRequest(request);
@@ -66,11 +62,11 @@ namespace Elekta.Appointment.Services.Test.Validation
         }
 
         [Test]
-        public void MakeAppointment_AppointmentDateWithWrongTime_ReturnsFailedValidationResult([ValueSource("_testDataFail1")] DateTime bookingDate)
+        public void MakeAppointment_AppointmentDateWithWrongTime_ReturnsFailedValidationResult()
         {
             //arrange
             var request = GetValidRequest();
-            request.AppointmentDate = bookingDate;
+            request.AppointmentDate = new DateTime(2020, 10, 8, 7, 10, 10);
 
             //act
             var res = _validator.ValidateMakeAppointmentRequest(request);
@@ -81,41 +77,41 @@ namespace Elekta.Appointment.Services.Test.Validation
         }
 
         [Test]
-        public void MakeAppointment_AppointmentDateWithWrongDate_ReturnsFailedValidationResult([ValueSource("_testDataFail2")] DateTime bookingDate)
+        public void MakeAppointment_AppointmentDateWithWrongDate_ReturnsFailedValidationResult()
         {
             //arrange
             var request = GetValidRequest();
-            request.AppointmentDate = bookingDate;
+            request.AppointmentDate = new DateTime(2020, 08, 15, 10, 10, 10);
 
             //act
             var res = _validator.ValidateMakeAppointmentRequest(request);
 
             //assert
-            res.PassedValidation.Should().BeTrue();
+            res.PassedValidation.Should().BeFalse();
             res.Errors.Should().Contain("Appointments can only be made for 2 weeks later at most!");
             //
         }
 
         [Test]
-        public void Cancel_Appointment_AppointmentDoesNotExist_ReturnsFailedValidationResult([ValueSource("_testDataFail")] DateTime bookingDate)
+        public void Cancel_Appointment_AppointmentDoesNotExist_ReturnsFailedValidationResult()
         {
             //arrange
             var request = GetValidRequest();
-            request.AppointmentDate = bookingDate;
+            request.AppointmentDate = new DateTime(2020, 10, 8, 10, 10, 10);
 
             //act
             var res = _validator.ValidateCancelAppointmentRequest(request);
 
             //assert
-            res.PassedValidation.Should().BeTrue();
+            res.PassedValidation.Should().BeFalse();
         }
 
         [Test]
-        public void Cancel_Appointment_CannotBeCancelledBefore3Days_ReturnsFailedValidationResult([ValueSource("_testDataFail1")] DateTime bookingDate)
+        public void Cancel_Appointment_CannotBeCancelledBefore3Days_ReturnsFailedValidationResult()
         {
             //arrange
             var request = GetValidRequest();
-            request.AppointmentDate = bookingDate;
+            request.AppointmentDate = new DateTime(2020, 10, 8, 10, 10, 10);
 
             //act
             var res = _validator.ValidateMakeAppointmentRequest(request);

@@ -29,19 +29,19 @@ namespace Elekta.Appointment.Data.DataSeed
             {
                 new Patient
                 {
-                    PatientId = 100,
+                    Id = 100,
                     PatientName = "Bill",
                     PatientEmailId = "bill@test.com"
                 },
                 new Patient
                 {
-                    PatientId = 101,
+                Id = 101,
                     PatientName = "Philbert",
                     PatientEmailId = "philbert@test.com"
                 },
                 new Patient
                 {
-                    PatientId = 102,
+                    Id = 102,
                     PatientName = "Stephen",
                     PatientEmailId = "stephen@test.com"
                 }
@@ -82,7 +82,7 @@ namespace Elekta.Appointment.Data.DataSeed
             var count = 0;
             foreach (var appointment in appointments)
             {
-                appointment.PatientId = patients[count++ % patients.Count].PatientId;
+                appointment.PatientId = patients[count++ % patients.Count].Id;
             }
 
             _context.SaveChanges();

@@ -7203,7 +7203,6 @@
       "Microsoft.EntityFrameworkCore >= 3.1.6",
       "Microsoft.EntityFrameworkCore.InMemory >= 3.1.6",
       "Microsoft.EntityFrameworkCore.Proxies >= 3.1.6",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.6",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.6",
       "Microsoft.Extensions.DependencyInjection >= 3.1.6",
       "Microsoft.OpenApi >= 1.2.2",
@@ -7273,10 +7272,6 @@
             "version": "[3.1.6, )"
           },
           "Microsoft.EntityFrameworkCore.Proxies": {
-            "target": "Package",
-            "version": "[3.1.6, )"
-          },
-          "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[3.1.6, )"
           },
