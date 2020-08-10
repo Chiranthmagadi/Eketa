@@ -3,6 +3,7 @@ using Elekta.Appointment.Services.Requests;
 using System;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Elekta.Appointment.Services.Validation
@@ -104,20 +105,15 @@ namespace Elekta.Appointment.Services.Validation
           
             using (var httpClient = new HttpClient())
             {
-                //httpClient.BaseAddress = new Uri("http://localhost:3388/equipmentAvailability");
-                //httpClient.
-                //var httpResponse =  await httpClient.GetAsync();
-                //var content = httpResponse.Content;
-
                 var req = new Request
                 {
                     AvailabilityDate = request.AppointmentDate
                 };
+
                 var content = new StringContent(req.ToString(), System.Text.Encoding.UTF8, "application/json");
                 var result = await httpClient.PostAsync("http://localhost:3388/equipmentAvailability", content);
                 return result.Content;
             }
-           
         }
 
         public class Request
