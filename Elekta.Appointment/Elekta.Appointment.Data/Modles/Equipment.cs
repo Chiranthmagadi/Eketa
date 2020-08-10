@@ -7,11 +7,8 @@ namespace Elekta.Appointment.Data.Modles
 {
     public class Equipment
     {
-        [Key]
-        public int EquipmentId { get; set; }
-        [Required]
+        public int Id { get; set; }
         public bool IsAvailable { get; set; }
-        [Required]
         public DateTime Date { get; set; }
     }
 }

@@ -32,19 +32,19 @@ namespace Elekta.Appointment.Data.DataSeed
             {
                 new Patient
                 {
-                    PatientId = 100,
+                    Id = 100,
                     PatientName = "Bill",
                     PatientEmailId = "bill@test.com"
                 },
                 new Patient
                 {
-                    PatientId = 101,
+                Id = 101,
                     PatientName = "Philbert",
                     PatientEmailId = "philbert@test.com"
                 },
                 new Patient
                 {
-                    PatientId = 102,
+                    Id = 102,
                     PatientName = "Stephen",
                     PatientEmailId = "stephen@test.com"
                 }
@@ -62,16 +62,52 @@ namespace Elekta.Appointment.Data.DataSeed
             {
                 new AppointmentModel
                 {
-                    Id=10,
-                    AppointmentDate = DateTime.Now,
+                    Id=1,
+                    AppointmentDate = DateTime.Now.AddDays(25),
                     Status = true
                 },
                 new AppointmentModel
                 {
-                    Id=11,
-                    AppointmentDate = DateTime.Now,
+                    Id=2,
+                    AppointmentDate = DateTime.Now.AddDays(30),
                     Status = false
-                }
+                },
+                new AppointmentModel
+                {
+                    Id=3,
+                    AppointmentDate = DateTime.Now.AddDays(35),
+                    Status = true
+                },
+                new AppointmentModel
+                {
+                    Id=4,
+                    AppointmentDate = DateTime.Now.AddDays(40),
+                    Status = false
+                },
+                new AppointmentModel
+                {
+                    Id=5,
+                    AppointmentDate = DateTime.Now.AddDays(45),
+                    Status = true
+                },
+                new AppointmentModel
+                {
+                    Id=6,
+                    AppointmentDate = DateTime.Now.AddDays(50),
+                    Status = false
+                },
+                new AppointmentModel
+                {
+                    Id=7,
+                    AppointmentDate = DateTime.Now.AddDays(55),
+                    Status = true
+                },
+                new AppointmentModel
+                {
+                    Id=8,
+                    AppointmentDate = DateTime.Now.AddDays(60),
+                    Status = false
+                },
             };
 
             _context.Appointments.AddRange(appointments);
@@ -85,7 +121,7 @@ namespace Elekta.Appointment.Data.DataSeed
             var count = 0;
             foreach (var appointment in appointments)
             {
-                appointment.PatientId = patients[count++ % patients.Count].PatientId;
+                appointment.PatientId = patients[count++ % patients.Count].Id;
             }
 
             _context.SaveChanges();
