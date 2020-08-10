@@ -11,9 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elekta.Appointment.Services
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elekta.Appointment.Services.Test", "Elekta.Appointment.Services.Test\Elekta.Appointment.Services.Test.csproj", "{FCECD369-8CF8-4A72-8173-B175DA43A80E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PDR.PatientBooking.Data", "PDR.PatientBooking.Data\PDR.PatientBooking.Data.csproj", "{61D50E5A-3A72-47B1-93C5-3B94B2ED4022}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elekta.Equipment.RemoteService", "Elekta.Equipment.RemoteService\Elekta.Equipment.RemoteService.csproj", "{298C1B30-9E99-4AAF-983A-BE31B748DBA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elekta.Equipment.RemoteService", "Elekta.Equipment.RemoteService\Elekta.Equipment.RemoteService.csproj", "{298C1B30-9E99-4AAF-983A-BE31B748DBA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +35,6 @@ Global
 		{FCECD369-8CF8-4A72-8173-B175DA43A80E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCECD369-8CF8-4A72-8173-B175DA43A80E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCECD369-8CF8-4A72-8173-B175DA43A80E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61D50E5A-3A72-47B1-93C5-3B94B2ED4022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61D50E5A-3A72-47B1-93C5-3B94B2ED4022}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61D50E5A-3A72-47B1-93C5-3B94B2ED4022}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61D50E5A-3A72-47B1-93C5-3B94B2ED4022}.Release|Any CPU.Build.0 = Release|Any CPU
 		{298C1B30-9E99-4AAF-983A-BE31B748DBA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{298C1B30-9E99-4AAF-983A-BE31B748DBA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{298C1B30-9E99-4AAF-983A-BE31B748DBA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
